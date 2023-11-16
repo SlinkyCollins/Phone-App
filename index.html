@@ -1,35 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phone App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-     <h1>Double tap on phone to wake it up</h1>
-     <div class="card">
-        <h1>Generate Voucher</h1>
-        <input type="number">
-        <select id="">
-            <option>Select card</option>
-            <option>Glo</option>
-            <option>Mtn</option>
-            <option>Airtel</option>
-            <option>9mobile</option>
-        </select>
 
-        <select id="">
-            <option>Select Amount</option>
-            <option>100</option>
-            <option>200</option>
-            <option>500</option>
-            <option>1000</option>
-        </select>
+    <h1>Double tap on phone to wake it up</h1>
 
-        <button>Generate Card</button>
+    <div class="container">
+        <div class="card">
+            <h1>Generate Voucher</h1>
+    
+            <div class="input-container">
+                <input type="text" placeholder="Enter your card here">
+            </div>
+    
+    
+            <div class="select-container">
+                <select id="">
+                    <option>Select Card</option>
+                    <option>Glo</option>
+                    <option>Mtn</option>
+                    <option>Airtel</option>
+                    <option>9mobile</option>
+                </select>
+            </div>
+    
+            <div class="select-container">
+                <select id="">
+                    <option>Select Amount</option>
+                    <option>100</option>
+                    <option>200</option>
+                    <option>500</option>
+                    <option>1000</option>
+                </select>
+            </div>
+    
+            <div class="button-container">
+                <button>Generate Card</button>
+            </div>
+    
+            <div class="button-container">
+                <button>Show All Cards</button>
+            </div>
+    
+            <div class="all-cards" id="card">
+                <div class="all-cards-text">
+                    <p>AIRTEL</p>
+                    <p id="validation">NOTUSED</p>
+                    <p>#500</p>
+                </div>
+                <h1 id="validation">92437986171151111</h1>
+            </div>
+    
+            <div class="all-cards">
+                <div class="all-cards-text">
+                    <p>AIRTEL</p>
+                    <p id="validation">NOTUSED</p>
+                    <p>#500</p>
+                </div>
+                <h1 id="validation">92437986171151111</h1>
+            </div>
+        </div>
+    
+        <div class="phone-container"></div>
+    </div>
 
-        <button>Show All Cards</button>
-     </div>
+    <!-- <br><br><br><br> -->
 </body>
+
 </html>
