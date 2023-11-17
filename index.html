@@ -14,64 +14,127 @@
 
     <div class="container">
         <div class="card">
-            <h1>Generate Voucher</h1>
-    
-            <div class="input-container">
-                <input type="text" placeholder="Enter your card here">
-            </div>
-    
-    
-            <div class="select-container">
-                <select id="">
-                    <option>Select Card</option>
-                    <option>Glo</option>
-                    <option>Mtn</option>
-                    <option>Airtel</option>
-                    <option>9mobile</option>
-                </select>
-            </div>
-    
-            <div class="select-container">
-                <select id="">
-                    <option>Select Amount</option>
-                    <option>100</option>
-                    <option>200</option>
-                    <option>500</option>
-                    <option>1000</option>
-                </select>
-            </div>
-    
-            <div class="button-container">
-                <button>Generate Card</button>
-            </div>
-    
-            <div class="button-container">
-                <button>Show All Cards</button>
-            </div>
-    
-            <div class="all-cards" id="card">
-                <div class="all-cards-text">
-                    <p>AIRTEL</p>
-                    <p id="validation">NOTUSED</p>
-                    <p>#500</p>
+            <div class="data-container">
+                <h1>Generate Voucher</h1>
+
+                <div class="input-container">
+                    <input type="number" placeholder="Enter no. of card here" id="inputId">
                 </div>
-                <h1 id="validation">92437986171151111</h1>
-            </div>
-    
-            <div class="all-cards">
-                <div class="all-cards-text">
-                    <p>AIRTEL</p>
-                    <p id="validation">NOTUSED</p>
-                    <p>#500</p>
+
+
+                <div class="select-container">
+                    <select id="select-card">
+                        <option>Select Card</option>
+                        <option>Glo</option>
+                        <option>Mtn</option>
+                        <option>Airtel</option>
+                        <option>9mobile</option>
+                    </select>
                 </div>
-                <h1 id="validation">92437986171151111</h1>
+
+                <div class="select-container">
+                    <select id="amount">
+                        <option>Select Amount</option>
+                        <option>100</option>
+                        <option>200</option>
+                        <option>500</option>
+                        <option>1000</option>
+                    </select>
+                </div>
+
+                <div class="button-container">
+                    <button onclick="generate()">Generate Card</button>
+                </div>
+
+                <div class="button-container">
+                    <button onclick="display()">Show All Cards</button>
+                </div>
+            </div>
+
+            <div class="display-card-wrapper">
+                <div id="showError"></div>
+                <div id="showG"></div>
+
+                <div id="card-wrapper">
+                    <div class="all-cards">
+                        <div class="all-cards-text">
+                            <p>AIRTEL</p>
+                            <p class="validation-text">NOTUSED</p>
+                            <p>#500</p>
+                        </div>
+                        <h1 id="validation">92437986171151111</h1>
+                    </div>
+
+                    <div class="all-cards">
+                        <div class="all-cards-text">
+                            <p>AIRTEL</p>
+                            <p class="validation-text">NOTUSED</p>
+                            <p>#500</p>
+                        </div>
+                        <h1 id="validation">92437986171151111</h1>
+                    </div>
+                </div>
             </div>
         </div>
-    
+
         <div class="phone-container"></div>
     </div>
 
-    <!-- <br><br><br><br> -->
+
+    <script>
+        let showErr = document.getElementById("showError");
+
+        const display = () => {
+            let cardWrapper = document.getElementById("card-wrapper");
+            cardWrapper.style.display = "block";
+        }
+
+        const closeError = () => {
+            showErr.style.display = "none";
+        }
+
+        const generate = () => {
+            let input = document.getElementById("inputId");
+            let selectCard = document.getElementById("select-card");
+            let amount = document.getElementById("amount");
+            let showErr = document.getElementById("showError");
+            let gen = document.getElementById("showG");
+            let x = Math.round(Math.random() * 1000000000000000);
+
+            if (input.value == "" && selectCard.value == "Select Card" && amount.value == "Select Amount") {
+                showErr.style.display = "block";
+                showErr.innerHTML = `<div>Please fill out the empty spaces <br/> <button onclick="closeError()">OK</button></div>`;
+            } else if (input.value !== "" && selectCard.value == "Select Card" && amount.value == "Select Amount") {
+                showErr.style.display = "block";
+                showErr.innerHTML = `<div>Please fill out the remaining empty spaces <br/> <button onclick="closeError()">OK</button></div>`;
+            } else if (input.value !== "" && selectCard.value !== "Select Card" && amount.value == "Select Amount") {
+                showErr.style.display = "block";
+                showErr.innerHTML = `<div>Please fill out the remaining empty spaces <br/> <button onclick="closeError()">OK</button></div>`;
+            } else if (input.value !== "" && selectCard.value == "Select Card" && amount.value !== "Select Amount") {
+                showErr.style.display = "block";
+                showErr.innerHTML = `<div>Please fill out the remaining empty spaces <br/> <button onclick="closeError()">OK</button></div>`;
+            } else if (input.value == "" && selectCard.value !== "Select Card" && amount.value !== "Select Amount") {
+                showErr.style.display = "block";
+                showErr.innerHTML = `<div>Please fill out the remaining empty spaces <br/> <button onclick="closeError()">OK</button></div>`;
+            } else if (input.value == "" && selectCard.value == "Select Card" && amount.value !== "Select Amount") {
+                showErr.style.display = "block";
+                showErr.innerHTML = `<div>Please fill out the remaining empty spaces <br/> <button onclick="closeError()">OK</button></div>`;
+            } else if (input.value == "" && selectCard.value !== "Select Card" && amount.value == "Select Amount") {
+                showErr.style.display = "block";
+                showErr.innerHTML = `<div>Please fill out the remaining empty spaces <br/> <button onclick="closeError()">OK</button></div>`;
+            } else {
+                gen.style.display = "block";
+                gen.innerHTML += `<div style="background-color: #292929; color: white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; padding:5px;margin: 20px;">
+                <div style="display:flex; justify-content:space-between; padding:0px 0px 10px 0px;">
+                    <p>${selectCard.value}</p>
+                    <p>#${amount.value}</p>
+                </div>
+                <p style="font-size:18px;letter-spacing:5px;font-weight:600;">${x}</p>
+                </div>`
+            }
+        }
+    </script>
+
 </body>
 
 </html>
