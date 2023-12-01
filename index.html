@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <h1>Double tap on phone to wake it up</h1>
 
     <div class="container">
-        <div class="card">
-            <div class="data-container">
-                <h1>Generate Voucher</h1>
+      <div class="card">
+        <div class="data-container">
+          <h1>Generate Voucher</h1>
 
-                <div id="numErr"></div>
+          <div id="numErr"></div>
 
-                <div class="input-container">
-                    <input type="number" placeholder="Enter no. of card here" id="inputId" min="1">
-                </div>
+          <div class="input-container">
+            <input
+              type="number"
+              placeholder="Enter no. of card here"
+              id="inputId"
+              min="1"
+            />
+          </div>
 
+          <div class="select-container">
+            <select id="select-card">
+              <option>Select Card</option>
+              <option>Glo</option>
+              <option>Mtn</option>
+              <option>Airtel</option>
+              <option>9mobile</option>
+            </select>
+          </div>
 
-                <div class="select-container">
-                    <select id="select-card">
-                        <option>Select Card</option>
-                        <option>Glo</option>
-                        <option>Mtn</option>
-                        <option>Airtel</option>
-                        <option>9mobile</option>
-                    </select>
-                </div>
+          <div class="select-container">
+            <select id="amount">
+              <option>Select Amount</option>
+              <option>100</option>
+              <option>200</option>
+              <option>500</option>
+              <option>1000</option>
+            </select>
+          </div>
 
-                <div class="select-container">
-                    <select id="amount">
-                        <option>Select Amount</option>
-                        <option>100</option>
-                        <option>200</option>
-                        <option>500</option>
-                        <option>1000</option>
-                    </select>
-                </div>
+          <div class="button-container">
+            <button onclick="generate()">Generate Card</button>
+          </div>
 
-                <div class="button-container">
-                    <button onclick="generate()">Generate Card</button>
-                </div>
-
-                <div class="button-container">
-                    <button onclick="display()">Show All Cards</button>
-                </div>
-            </div>
-
-            <div class="display-card-wrapper">
-                <div id="showError"></div>
-                <div id="showG"></div>
-
-                <div id="card-wrapper">
-                    <div class="all-cards">
-                        <div class="all-cards-text">
-                            <p>AIRTEL</p>
-                            <p class="validation-text">NOTUSED</p>
-                            <p>#500</p>
-                        </div>
-                        <h1 id="validation">92437986171151111</h1>
-                    </div>
-
-                    <div class="all-cards">
-                        <div class="all-cards-text">
-                            <p>AIRTEL</p>
-                            <p class="validation-text">NOTUSED</p>
-                            <p>#500</p>
-                        </div>
-                        <h1 id="validation">92437986171151111</h1>
-                    </div>
-                </div>
-            </div>
+          <div class="button-container">
+            <button onclick="display()">Show All Cards</button>
+          </div>
         </div>
 
-        <div class="phone-container"></div>
+        <div class="display-card-wrapper">
+          <div id="showError"></div>
+          <div id="showG"></div>
+
+          <div id="card-wrapper">
+            <div class="all-cards">
+              <div class="all-cards-text">
+                <p>AIRTEL</p>
+                <p class="validation-text">NOTUSED</p>
+                <p>#500</p>
+              </div>
+              <h1 id="validation">92437986171151111</h1>
+            </div>
+
+            <div class="all-cards">
+              <div class="all-cards-text">
+                <p>AIRTEL</p>
+                <p class="validation-text">NOTUSED</p>
+                <p>#500</p>
+              </div>
+              <h1 id="validation">92437986171151111</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-container"></div>
     </div>
 
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
