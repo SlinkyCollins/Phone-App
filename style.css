@@ -233,4 +233,8 @@ h1 {
     object-fit: cover;
 }
 
-
+.innerDiv {
+    position: absolute;
+    left: 180px;
+    top: 10px;
+}
