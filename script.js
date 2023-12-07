@@ -89,3 +89,26 @@ let showErr = document.getElementById("showError");
           }
         }
       };
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+        updateDateTime(); // Update initially
+      
+        // Update every second
+        setInterval(updateDateTime, 1000);
+      });
+      
+      function updateDateTime() {
+        const currentDate = new Date();
+      
+        const dateElement = document.getElementById("date");
+        const timeElement = document.getElementById("time");
+      
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = currentDate.toLocaleDateString('en-US', options);
+        const formattedTime = currentDate.toLocaleTimeString();
+      
+        dateElement.textContent = `Date: ${formattedDate}`;
+        timeElement.textContent = `Time: ${formattedTime}`;
+      }
+      

@@ -156,7 +156,7 @@ h1 {
 .phone-container {
     background-color: #060606;
     margin: 20px auto;
-    border: 5px solid #242424;
+    border: 5px solid #080808;
     border-radius: 25px;
     width: 300px;
     height: 550px;
@@ -237,4 +237,13 @@ h1 {
     position: absolute;
     left: 180px;
     top: 10px;
+}
+
+.datetime-container {
+    text-align: center;
+}
+
+#date, #time {
+    font-size: 24px;
+    margin: 5px;
 }
