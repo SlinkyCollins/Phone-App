@@ -235,13 +235,22 @@ h1 {
 
 .innerDiv {
     position: absolute;
-    left: 180px;
-    top: 10px;
+    left: 190px;
+    top: 6px;
 }
 
-/* .network {
-    margin-top: 0px;
-} */
+.network {
+    /* margin-top: 0px; */
+    position: absolute;
+    right: 225px;
+    color: #fff;
+}
+
+.network > p {
+    font-size: 6px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 50px;
+}
 
 .datetime-container {
     text-align: center;
@@ -266,6 +275,10 @@ h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#batteryIcon {
+    transform: rotate(-90deg);
+}
+
 .apps-container {
     position: absolute;
     top: 200px;
@@ -284,13 +297,13 @@ h1 {
 }
 
 #gameIcon {
-    background-color: orange;
+    background-color: #ffc107;
     padding: 5px;
     border-radius: 10px;
 }
 
 #chromeIcon {
-    background-color: #ffff;
+    background-color: #17a2b8;
     padding: 5px;
     border-radius: 10px;
 }
@@ -302,13 +315,13 @@ h1 {
 }
 
 #phoneIcon {
-    background-color: green;
+    background-color: #28a745;
     padding: 5px;
     border-radius: 10px;
 }
 
 #messageIcon {
-    background-color: lightgreen;
+    background-color: #17a2b8;
     padding: 5px;
     border-radius: 10px;
 }
@@ -320,7 +333,41 @@ h1 {
 }
 
 #contactIcon {
-    background-color: lightblue;
+    background-color: #007bff;
     padding: 5px;
     border-radius: 10px;
+}
+
+.first-row{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    gap: 5px;
+}
+
+.first-row > img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 0px 130px 0px -125px;
+}
+
+#tabIcon {
+    position: absolute;
+    top: 100px;
+    
+}
+
+.second-row {
+    display: flex;
+    position: absolute;
+    top: 185px;
+    gap: 10px;
+}
+
+.second-row > img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 0px 140px 0px -145px;
 }
