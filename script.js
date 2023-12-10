@@ -104,11 +104,13 @@ let showErr = document.getElementById("showError");
         const dateElement = document.getElementById("date");
         const timeElement = document.getElementById("time");
       
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
         const formattedDate = currentDate.toLocaleDateString('en-US', options);
         const formattedTime = currentDate.toLocaleTimeString();
       
-        dateElement.textContent = `Date: ${formattedDate}`;
-        timeElement.textContent = `Time: ${formattedTime}`;
+        dateElement.textContent = `${formattedDate}`; 
+        timeElement.textContent = `${formattedTime}`;
       }
+
+
       
