@@ -112,5 +112,28 @@ let showErr = document.getElementById("showError");
         timeElement.textContent = `${formattedTime}`;
       }
 
+      let phone = document.getElementById("phone-container");
+      let screen = document.getElementById("screen");
+      let isScreenVisible = false;
+
+      screen.style.display = "none";
+
+      phone.addEventListener("dblclick", function() {
+        togglePhoneScreen();
+      });
+
+      function togglePhoneScreen() {
+        isScreenVisible = !isScreenVisible;
+
+        if (isScreenVisible) {
+          screen.style.display = "block";
+          console.log("Screen is visible");
+        } else {
+          screen.style.display = "none";
+          console.log("Screen is not visible");
+        }
+      }
+
+
 
       
