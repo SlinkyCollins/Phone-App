@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone App</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="phone icon" href="phone-icon.webp"> -->
 </head>
 
 <body>
@@ -83,38 +84,81 @@
             <div class="speaker2"></div>
             <div id="screen">
                 <div class="innerDiv">
-                    <div class="network">
-                        <p>MTN NG</p>
-                        <p>GLO NG</p>
-                        <p>AIRTEL NG</p>
-                        <p>9MOBILE NG</p>
-                    </div>
-                    <div class="network-icon">
-                        <img src="image/signal1.png" alt="">
-                        <img src="image/signal2.png" alt="">
-                        <img src="image/signal1.png" alt="">
-                        <img src="image/signal2.png" alt="">
-                        <img src="image/battery.png" alt="" id="batteryIcon">
-                    </div>
-                    <div class="datetime-container">
-                        <p id="time"></p>
-                        <p id="date"></p>
-                    </div>
-                    <div class="apps-container">
-                        <div class="first-row">
-                            <img src="image/game.png" alt="" id="gameIcon" onclick="openGameApp()">
-                            <img src="image/calculator.png" alt="" id="calculatorIcon" onclick="openCalculator()">
-                            <img src="image/music.png" alt="" id="musicIcon" onclick="openMusicApp()">
-                            <img src="image/chrome.png" alt="" id="chromeIcon" onclick="openChrome()">
+
+                    <div id="calc-container">
+                        <div class="calculator">
+                          <form>
+                            <div class="display">
+                              <input type="text" name="display" readonly>
+                            </div>
+                            <div>
+                              <input type="button" value="AC" onclick="display.value = '' " class="operator">
+                              <input type="button" value="DE" onclick="display.value =  display.value.toString().slice(0,-1)" class="operator">
+                              <input type="button" value="." onclick="display.value += '.' " class="operator">
+                              <input type="button" value="/" onclick="display.value += '/' " class="operator">
+                            </div>
+                            <div>
+                              <input type="button" value="7" onclick="display.value += '7' ">
+                              <input type="button" value="8" onclick="display.value += '8' ">
+                              <input type="button" value="9" onclick="display.value += '9' ">
+                              <input type="button" value="*" onclick="display.value += '*' " class="operator">
+                            </div>
+                            <div>
+                              <input type="button" value="4" onclick="display.value += '4' ">
+                              <input type="button" value="5" onclick="display.value += '5' ">
+                              <input type="button" value="6" onclick="display.value += '6' ">
+                              <input type="button" value="-" onclick="display.value += '-' " class="operator">
+                            </div>
+                            <div>
+                              <input type="button" value="1" onclick="display.value += '1' ">
+                              <input type="button" value="2" onclick="display.value += '2' ">
+                              <input type="button" value="3" onclick="display.value += '3' ">
+                              <input type="button" value="+" onclick="display.value += '+' " class="operator">
+                            </div>
+                            <div>
+                              <input type="button" value="00" onclick="display.value += '00' ">
+                              <input type="button" value="0" onclick="display.value += '0' ">
+                              <input type="button" value="=" onclick="display.value = eval(display.value)" class="equal operator">
+                             
+                            </div>
+                          </form>
                         </div>
-                        <div>
-                            <img src="image/more.png" alt="" id="tabIcon">
+                      </div>
+
+                    <div id="innerScreen">
+                        <div class="network">
+                            <p>MTN NG</p>
+                            <p>GLO NG</p>
+                            <p>AIRTEL NG</p>
+                            <p>9MOBILE NG</p>
                         </div>
-                        <div class="second-row">
-                            <img src="image/phone.png" alt="" id="phoneIcon" onclick="openCallApp()">
-                            <img src="image/contact.png" alt="" id="contactIcon" onclick="openContact()">
-                            <img src="image/message.png" alt="" id="messageIcon" onclick="openMessagesApp()">
-                            <img src="image/camera.png" alt="" id="cameraIcon" onclick="openCamera()">
+                        <div class="network-icon">
+                            <img src="image/signal1.png" alt="">
+                            <img src="image/signal2.png" alt="">
+                            <img src="image/signal1.png" alt="">
+                            <img src="image/signal2.png" alt="">
+                            <img src="image/battery.png" alt="" id="batteryIcon">
+                        </div>
+                        <div class="datetime-container">
+                            <p id="time"></p>
+                            <p id="date"></p>
+                        </div>
+                        <div class="apps-container">
+                            <div class="first-row">
+                                <img src="image/game.png" alt="" id="gameIcon" onclick="openGameApp()">
+                                <img src="image/calculator.png" alt="" id="calculatorIcon" onclick="openCalculator()">
+                                <img src="image/music.png" alt="" id="musicIcon" onclick="openMusicApp()">
+                                <img src="image/chrome.png" alt="" id="chromeIcon" onclick="openChrome()">
+                            </div>
+                            <div>
+                                <img src="image/more.png" alt="" id="tabIcon">
+                            </div>
+                            <div class="second-row">
+                                <img src="image/phone.png" alt="" id="phoneIcon" onclick="openCallApp()">
+                                <img src="image/contact.png" alt="" id="contactIcon" onclick="openContact()">
+                                <img src="image/message.png" alt="" id="messageIcon" onclick="openMessagesApp()">
+                                <img src="image/camera.png" alt="" id="cameraIcon" onclick="openCamera()">
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+// Voucher Card CSS
 let showErr = document.getElementById("showError");
 
 const display = () => {
@@ -89,8 +90,10 @@ const generate = () => {
     }
   }
 };
+// END OF VOUCHER CARD CSS
 
 
+// PHONE CARD CSS
 document.addEventListener("DOMContentLoaded", function () {
   updateDateTime(); // Update initially
 
@@ -139,40 +142,13 @@ function openGameApp() {
 }
 
 function openCalculator() {
-  // alert("Opening Calculator");
-  screen.innerHTML = `
-  <div class="calc-container">
-        <div class="calculator">
-        <input type="text" name="screen" id="calc-screen" value="0" style="text-align:right; ">
-        <table>
-            <tr>
-                <td><button>7</button></td>
-                    <td><button>8</button></td>
-                        <td><button>9</button></td>
-                            <td><button>/</button></td>
-            </tr>
-            <tr>
-                <td><button>4</button></td>
-                    <td><button>5</button></td>
-                        <td><button>6</button></td>
-                            <td><button>x</button></td>
-            </tr>
-            <tr>
-                <td><button>1</button></td>
-                    <td><button>2</button></td>
-                        <td><button>3</button></td>
-                            <td><button>-</button></td>
-            </tr>
-            <tr>
-                <td><button>0</button></td>
-                    <td><button>.</button></td>
-                        <td><button>+</button></td>
-                            <td><button style="background: orange;">=</button></td>
-            </tr>
-        </table>
-    </div>
-    </div>
-  `
+    let calculator = document.getElementById("calc-container");
+    let innerScreen = document.getElementById("innerScreen");
+    let wallpaper = document.getElementById("mywallpaper");
+    calculator.style.display = "block";
+    innerScreen.style.display = "none";
+    wallpaper.style.display = "none";
+    // screen.style.display = "none";
 }
 
 function openMusicApp() {
@@ -198,6 +174,7 @@ function openMessagesApp() {
 function openCamera() {
   alert("Opening Camera");
 }
+//END OF PHONE CARD CSS
 
 
 
