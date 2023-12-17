@@ -291,48 +291,56 @@ h1 {
     background-color: #DC3545;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #gameIcon {
     background-color: #ffc107;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #chromeIcon {
     background-color: #17a2b8;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #musicIcon {
     background-color: #F8F9FA;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #phoneIcon {
     background-color: #28a745;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #messageIcon {
     background-color: #17a2b8;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #cameraIcon {
     background-color: grey;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #contactIcon {
     background-color: #007bff;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .first-row{
@@ -373,8 +381,8 @@ h1 {
 /* Calculator stylesheet */
 
 #calc-container{
-    width: 240px;
-    margin: 0px 0px 0px -165px;
+    /* width: 250px; */
+    margin: 0px 0px 0px -185px;
     /* padding: 0px 35px 10px 15px; */
     /* padding: 5px; */
     /* height: 300px; */
@@ -388,16 +396,19 @@ h1 {
     background: #3a4452;
     padding: 10px;
     border-radius: 10px;
+    height: 450px;
+    width: 280px;
 }
 .calculator form input{
     border: 0;
     outline: 0;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
     box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     background: transparent;
-    font-size: 20px;
+    font-size: 18px;
     color: #fff;
     cursor: pointer;
     margin: 10px;
@@ -406,22 +417,53 @@ h1 {
 form .display{
     display: flex;
     justify-content: flex-end;
-    margin: 20px 0;
+    margin: 25px 0;
 }
 form .display input{
     text-align: right;
     flex: 1;
     font-size: 45px;
     box-shadow: none;
+    overflow-x: auto;
 }
 form input.equal{
-    width: 80px;
+    width: 105px;
+}
+
+form input.equal:hover {
+    background-color: #33ffd8;
+    color: #fff;
 }
 
 
+
+form input.number {
+    /* transform: scale(1);
+    transition: transform 0.3s ease;  */
+    /* border: 2px solid transparent;
+    transition: border 0.3s ease; */
+    transform: rotate(0deg);
+    transition: transform 0.3s ease; 
+}
+
+form input.number:hover {
+    /* transform: scale(1.2); */
+    /* border-color: #555; */
+    transform: rotate(15deg);
+}
 
 form input.operator{
     color: #33ffd8;
+    transition: background-color 0.4s ease;
+}
+
+form input.operator:hover {
+    background-color: #33ffd8;
+    color: #fff;
+}
+
+.all-rows {
+    margin: 40px 0px 0px 0px;
 }
 
 /* End of Calculator stylesheet */

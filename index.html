@@ -87,43 +87,47 @@
 
                     <div id="calc-container">
                         <div class="calculator">
-                          <form>
-                            <div class="display">
-                              <input type="text" name="display" readonly>
-                            </div>
-                            <div>
-                              <input type="button" value="AC" onclick="display.value = '' " class="operator">
-                              <input type="button" value="DE" onclick="display.value =  display.value.toString().slice(0,-1)" class="operator">
-                              <input type="button" value="." onclick="display.value += '.' " class="operator">
-                              <input type="button" value="/" onclick="display.value += '/' " class="operator">
-                            </div>
-                            <div>
-                              <input type="button" value="7" onclick="display.value += '7' ">
-                              <input type="button" value="8" onclick="display.value += '8' ">
-                              <input type="button" value="9" onclick="display.value += '9' ">
-                              <input type="button" value="*" onclick="display.value += '*' " class="operator">
-                            </div>
-                            <div>
-                              <input type="button" value="4" onclick="display.value += '4' ">
-                              <input type="button" value="5" onclick="display.value += '5' ">
-                              <input type="button" value="6" onclick="display.value += '6' ">
-                              <input type="button" value="-" onclick="display.value += '-' " class="operator">
-                            </div>
-                            <div>
-                              <input type="button" value="1" onclick="display.value += '1' ">
-                              <input type="button" value="2" onclick="display.value += '2' ">
-                              <input type="button" value="3" onclick="display.value += '3' ">
-                              <input type="button" value="+" onclick="display.value += '+' " class="operator">
-                            </div>
-                            <div>
-                              <input type="button" value="00" onclick="display.value += '00' ">
-                              <input type="button" value="0" onclick="display.value += '0' ">
-                              <input type="button" value="=" onclick="display.value = eval(display.value)" class="equal operator">
-                             
-                            </div>
-                          </form>
+                            <form>
+                                <div class="display">
+                                    <input type="text" name="display">
+                                </div>
+                                <div class="all-rows">
+                                    <div class="row1">
+                                        <input type="button" value="AC" onclick="display.value = '' " class="operator">
+                                        <input type="button" value="DE"
+                                            onclick="display.value =  display.value.toString().slice(0,-1)"
+                                            class="operator">
+                                        <input type="button" value="." onclick="display.value += '.' " class="operator">
+                                        <input type="button" value="/" onclick="display.value += '/' " class="operator">
+                                    </div>
+                                    <div class="row2">
+                                        <input type="button" value="7" onclick="display.value += '7' " class="number">
+                                        <input type="button" value="8" onclick="display.value += '8' " class="number">
+                                        <input type="button" value="9" onclick="display.value += '9' " class="number">
+                                        <input type="button" value="*" onclick="display.value += '*' " class="operator">
+                                    </div>
+                                    <div class="row3">
+                                        <input type="button" value="4" onclick="display.value += '4' " class="number">
+                                        <input type="button" value="5" onclick="display.value += '5' " class="number">
+                                        <input type="button" value="6" onclick="display.value += '6' " class="number">
+                                        <input type="button" value="-" onclick="display.value += '-' " class="operator">
+                                    </div>
+                                    <div class="row4">
+                                        <input type="button" value="1" onclick="display.value += '1' " class="number">
+                                        <input type="button" value="2" onclick="display.value += '2' " class="number">
+                                        <input type="button" value="3" onclick="display.value += '3' " class="number">
+                                        <input type="button" value="+" onclick="display.value += '+' " class="operator">
+                                    </div>
+                                    <div class="row5">
+                                        <input type="button" value="00" onclick="display.value += '00' " class="number">
+                                        <input type="button" value="0" onclick="display.value += '0' " class="number">
+                                        <input type="button" value="=" onclick="display.value = eval(display.value)"
+                                            class="equal operator">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                      </div>
+                    </div>
 
                     <div id="innerScreen">
                         <div class="network">
