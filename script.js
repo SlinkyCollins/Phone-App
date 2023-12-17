@@ -178,17 +178,38 @@ function openMessagesApp() {
   alert("Opening Messages App");
 }
 
-function openCamera() {
-  alert("Opening Camera");
-}
 //END OF PHONE CARD CSS
 
 
 function goBackHome() {
   calculator.style.display = "none";
-    innerScreen.style.display = "block";
-    wallpaper.style.display = "block";
+  innerScreen.style.display = "block";
+  wallpaper.style.display = "block";
+  camera.style.display = "none";
 }
 
+let camera = document.getElementById("cameraWrapper");
+const webCamElement = document.getElementById("webCam");
+const canvasElement = document.getElementById("canvas");
+const webcam = new Webcam(webCamElement, "user", canvasElement);
+// webcam.start();
 
+function takeAPicture() {
+  let picture = webcam.snap();
+  document.querySelector("a").href = picture;
+}
 
+function stopWebCam() {
+  webcam.stop();
+}
+
+function startWebCam() {
+  webcam.start();
+}
+
+function openCamera() {
+  // alert("Opening Camera");
+  camera.style.display = "block";
+  innerScreen.style.display = "none";
+    wallpaper.style.display = "none";
+}

@@ -195,7 +195,7 @@ h1 {
     left: 70px;
 }
 
-#camera {
+#camera-design {
     width: 100px;
     height: 15px;
     border-radius: 10px;
@@ -469,6 +469,31 @@ form input.operator:hover {
 
 /* End of Calculator stylesheet */
 
+/* Camera App style */
+a {
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+}
+
+canvas {
+    display: none;
+}
+
+#cameraWrapper {
+    display: none;
+}
+
+#webCam {
+    margin-left: -190px;
+}
+
+.cameraBtn {
+    display: flex;
+    margin-left: -180px;
+}
+/* End of Camera App style */
 
 
 

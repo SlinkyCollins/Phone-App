@@ -7,6 +7,7 @@
     <title>Phone App</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="phone icon" href="./image/mobilephone.png">
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
 </head>
 
 <body>
@@ -80,7 +81,7 @@
 
         <div id="phone-container">
             <div class="speaker1"></div>
-            <div id="camera"></div>
+            <div id="camera-design"></div>
             <div class="speaker2"></div>
             <div id="screen">
                 <div class="innerDiv">
@@ -127,6 +128,17 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+
+                    <div id="cameraWrapper">
+                        <video id="webCam" autoplay playsinline width="280" height="400"></video>
+                        <canvas id="canvas"></canvas>
+                        <div class="cameraBtn">
+                            <button onclick="startWebCam()">START WEBCAM</button>
+                            <a download onclick="takeAPicture()">SNAP</a>
+                            <button onclick="stopWebCam()">STOP WEBCAM</button>
+                        </div>
+
                     </div>
 
                     <div id="innerScreen">
