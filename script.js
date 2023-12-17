@@ -117,6 +117,9 @@ function updateDateTime() {
 
 let phone = document.getElementById("phone-container");
 let screen = document.getElementById("screen");
+let calculator = document.getElementById("calc-container");
+let innerScreen = document.getElementById("innerScreen");
+let wallpaper = document.getElementById("mywallpaper");
 let isScreenVisible = false;
 
 screen.style.display = "none";
@@ -137,14 +140,18 @@ function togglePhoneScreen() {
   }
 }
 
+calculator.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
+
 function openGameApp() {
   alert("Opening Game App");
 }
 
+
 function openCalculator() {
-    let calculator = document.getElementById("calc-container");
-    let innerScreen = document.getElementById("innerScreen");
-    let wallpaper = document.getElementById("mywallpaper");
     calculator.style.display = "block";
     innerScreen.style.display = "none";
     wallpaper.style.display = "none";
@@ -176,6 +183,12 @@ function openCamera() {
 }
 //END OF PHONE CARD CSS
 
+
+function goBackHome() {
+  calculator.style.display = "none";
+    innerScreen.style.display = "block";
+    wallpaper.style.display = "block";
+}
 
 
 
