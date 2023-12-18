@@ -188,7 +188,14 @@ function goBackHome() {
   camera.style.display = "none";
 }
 
+// Camera Script
 let camera = document.getElementById("cameraWrapper");
+
+camera.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
 const webCamElement = document.getElementById("webCam");
 const canvasElement = document.getElementById("canvas");
 const webcam = new Webcam(webCamElement, "user", canvasElement);
@@ -213,3 +220,4 @@ function openCamera() {
   innerScreen.style.display = "none";
     wallpaper.style.display = "none";
 }
+// End of Camera script
