@@ -216,9 +216,9 @@ function startWebCam() {
 
 function openCamera() {
   // alert("Opening Camera");
-  webcam.start();
   camera.style.display = "block";
   innerScreen.style.display = "none";
-    wallpaper.style.display = "none";
+  wallpaper.style.display = "none";
+  webcam.start();
 }
 // End of Camera script
