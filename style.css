@@ -521,11 +521,12 @@ canvas {
     transition: background-color 0.4s ease;
 }
 
-.cameraBtn a {
-    border-radius: 500px;
-    /* padding: 10px; */
+.cameraBtn a img{
+    padding: 2px;
     cursor: pointer;
     object-fit: cover;
+    width: 40px;
+    height: 40px;
 }
 /* End of Camera App style */
 

@@ -186,6 +186,7 @@ function goBackHome() {
   innerScreen.style.display = "block";
   wallpaper.style.display = "block";
   camera.style.display = "none";
+  webcam.stop();
 }
 
 // Camera Script
@@ -199,7 +200,6 @@ camera.addEventListener("dblclick", function(event) {
 const webCamElement = document.getElementById("webCam");
 const canvasElement = document.getElementById("canvas");
 const webcam = new Webcam(webCamElement, "user", canvasElement);
-// webcam.start();
 
 function takeAPicture() {
   let picture = webcam.snap();
@@ -216,6 +216,7 @@ function startWebCam() {
 
 function openCamera() {
   // alert("Opening Camera");
+  webcam.start();
   camera.style.display = "block";
   innerScreen.style.display = "none";
     wallpaper.style.display = "none";
