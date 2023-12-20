@@ -120,11 +120,17 @@ let screen = document.getElementById("screen");
 let calculator = document.getElementById("calc-container");
 let innerScreen = document.getElementById("innerScreen");
 let wallpaper = document.getElementById("mywallpaper");
+let music = document.getElementById("player");
 let isScreenVisible = false;
 
 screen.style.display = "none";
 
-phone.addEventListener("dblclick", function () {
+phone.addEventListener("dblclick", function (event) {
+  if(event.target.closest("player")){
+    // Clicking inside the player app, do nothing
+    return;
+  }
+
   togglePhoneScreen();
 });
 
@@ -139,6 +145,11 @@ function togglePhoneScreen() {
     console.log("Screen is not visible");
   }
 }
+
+music.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
 
 calculator.addEventListener("dblclick", function(event) {
   // Prevent the double click event from reaching the phone screen
@@ -158,9 +169,6 @@ function openCalculator() {
     // screen.style.display = "none";
 }
 
-function openMusicApp() {
-  alert("Opening Music App");
-}
 
 function openChrome() {
   alert("Opening Chrome Browser");
@@ -186,6 +194,7 @@ function goBackHome() {
   innerScreen.style.display = "block";
   wallpaper.style.display = "block";
   camera.style.display = "none";
+  music.style.display = "none";
   webcam.stop();
 }
 
@@ -222,3 +231,13 @@ function openCamera() {
   webcam.start();
 }
 // End of Camera script
+
+//Music App
+function openMusicApp() {
+  // alert("Opening Music App");
+  music.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
+}
+
+// End of Music App
