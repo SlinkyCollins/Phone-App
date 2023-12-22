@@ -535,6 +535,10 @@ canvas {
 }
 /* End of Camera App style */
 
+#board{
+    display: none;
+}
+
 
 
     

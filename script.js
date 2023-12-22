@@ -121,6 +121,7 @@ let calculator = document.getElementById("calc-container");
 let innerScreen = document.getElementById("innerScreen");
 let wallpaper = document.getElementById("mywallpaper");
 let music = document.getElementById("player");
+let game = document.getElementById("board");
 let isScreenVisible = false;
 
 screen.style.display = "none";
@@ -146,6 +147,11 @@ function togglePhoneScreen() {
   }
 }
 
+game.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
 music.addEventListener("dblclick", function(event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
@@ -158,7 +164,10 @@ calculator.addEventListener("dblclick", function(event) {
 
 
 function openGameApp() {
-  alert("Opening Game App");
+  // alert("Opening Game App");
+  game.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
 }
 
 
@@ -195,6 +204,7 @@ function goBackHome() {
   wallpaper.style.display = "block";
   camera.style.display = "none";
   music.style.display = "none";
+  game.style.display = "none";
   webcam.stop();
 }
 

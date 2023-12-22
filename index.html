@@ -7,6 +7,7 @@
     <title>Phone App</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="music.css" /> 
+    <link rel="stylesheet" href="game.css">
     <link rel="phone icon" href="./image/mobilephone.png">
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -187,6 +188,11 @@
                     </div>
                     <!-- End of Music Player -->
 
+                    <!--For Game-->
+                    <canvas id="board"></canvas>
+                    <!--End of Game-->
+
+                    <!--For Camera-->
                     <div id="cameraWrapper">
                         <video id="webCam" autoplay playsinline width="285" height="460"></video>
                         <canvas id="canvas"></canvas>
@@ -195,8 +201,9 @@
                             <a download onclick="takeAPicture()" style="border-radius: 50%;"><img src="image/camsnap.png"></a>
                             <button onclick="stopWebCam()" id="cambtn2">STOP WEBCAM</button>
                         </div>
-
                     </div>
+                    <!--End of Camera-->
+
 
                     <div id="innerScreen">
                         <div class="network">
@@ -246,6 +253,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="game.js"></script>
     <script src="music.js" defer></script>
 </body>
 
