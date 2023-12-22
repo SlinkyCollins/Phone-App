@@ -539,7 +539,45 @@ canvas {
     display: none;
 }
 
+#caller {
+    display: none;
+    width: 300px;
+    height: 455px;
+    margin-left: -200px;
+    background-color: #fff;
+}
 
+#contact {
+    display: none;
+    width: 300px;
+    height: 455px;
+    margin-left: -200px;
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+#contact div > input{
+    width: 120px;
+    height: 20px;
+    margin: 10px;
+}
+
+#messenger {
+    display: none;
+    width: 300px;
+    height: 455px;
+    margin-left: -200px;
+    background-color: #fff;
+}
+
+#chromeBrowser {
+    display: none;
+    width: 300px;
+    height: 455px;
+    margin-left: -200px;
+    background-color: #fff;
+}
 
     
 

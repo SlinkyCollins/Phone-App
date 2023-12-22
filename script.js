@@ -122,6 +122,10 @@ let innerScreen = document.getElementById("innerScreen");
 let wallpaper = document.getElementById("mywallpaper");
 let music = document.getElementById("player");
 let game = document.getElementById("board");
+let callApp = document.getElementById("caller");
+let contact = document.getElementById("contact");
+let messenger = document.getElementById("messenger");
+let chromeBrowser = document.getElementById("chromeBrowser");
 let isScreenVisible = false;
 
 screen.style.display = "none";
@@ -147,6 +151,26 @@ function togglePhoneScreen() {
   }
 }
 
+chromeBrowser.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
+messenger.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
+contact.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
+callApp.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
 game.addEventListener("dblclick", function(event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
@@ -164,7 +188,7 @@ calculator.addEventListener("dblclick", function(event) {
 
 
 function openGameApp() {
-  // alert("Opening Game App");
+  alert("Opening Game App, works only on PC");
   game.style.display = "block";
   innerScreen.style.display = "none";
   wallpaper.style.display = "none";
@@ -180,31 +204,47 @@ function openCalculator() {
 
 
 function openChrome() {
-  alert("Opening Chrome Browser");
+  // alert("Opening Chrome Browser");
+  chromeBrowser.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
 }
 
 function openCallApp() {
-  alert("Opening Call App");
+  // alert("Opening Call App");
+  callApp.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
 }
 
 function openContact() {
-  alert("Opening Contacts");
+  // alert("Opening Contacts");
+  contact.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
 }
 
 function openMessagesApp() {
-  alert("Opening Messages App");
+  // alert("Opening Messages App");
+  messenger.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
 }
 
 //END OF PHONE CARD CSS
 
 
 function goBackHome() {
-  calculator.style.display = "none";
   innerScreen.style.display = "block";
   wallpaper.style.display = "block";
+  calculator.style.display = "none";
+  callApp.style.display = "none";
   camera.style.display = "none";
   music.style.display = "none";
   game.style.display = "none";
+  messenger.style.display = "none";
+  contact.style.display = "none";
+  chromeBrowser.style.display = "none";
   webcam.stop();
 }
 

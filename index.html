@@ -189,8 +189,37 @@
                     <!-- End of Music Player -->
 
                     <!--For Game-->
-                    <canvas id="board"></canvas>
+                      <canvas id="board"></canvas>
                     <!--End of Game-->
+
+                    <!--For Call App-->
+                        <div id="caller"></div>
+                    <!--End of Call App-->
+
+                    <!--Contacts App-->
+                        <div id="contact">
+                            <h1>Contacts</h1>
+                            <div>
+                                <label for="contactName">Name:</label>
+                                <input type="text" id="contactName">
+                            </div>
+                            <div>
+                                <label for="contactNumber">Mobile Number:</label>
+                                <input type="number" id="contactNumber">
+                            </div>
+                            <button onclick="saveContact()">Save Contact</button>
+
+                            <div id="displayContact"></div>
+                        </div>
+                    <!--End of Contacts App-->
+
+                    <!--Messages App-->
+                        <div id="messenger"></div>
+                    <!--End of Messages App-->
+
+                    <!--Chrome App-->
+                        <div id="chromeBrowser"></div>
+                    <!--End of Chrome App-->
 
                     <!--For Camera-->
                     <div id="cameraWrapper">
