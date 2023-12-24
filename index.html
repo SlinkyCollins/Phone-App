@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone App</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="music.css" /> 
+    <link rel="stylesheet" href="music.css" />
     <link rel="stylesheet" href="game.css">
     <link rel="phone icon" href="./image/mobilephone.png">
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
@@ -144,81 +144,167 @@
                                 <div class="track-name">Track Name</div>
                                 <div class="track-artist">Track Artist</div>
                             </div>
-                 
+
                             <div class="slider_container">
                                 <div class="current-time">00:00</div>
-                                 <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
-                                 <div class="total-duration">00:00</div>
+                                <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                                <div class="total-duration">00:00</div>
                             </div>
-                 
+
                             <div class="slider_container">
                                 <i class="fa fa-volume-down"></i>
-                                 <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
-                                 <i class="fa fa-volume-up"></i>
+                                <input type="range" min="1" max="100" value="99" class="volume_slider"
+                                    onchange="setVolume()">
+                                <i class="fa fa-volume-up"></i>
                             </div>
-                 
+
                             <div class="buttons">
                                 <div class="random-track" onclick="randomTrack()">
                                     <i class="fas fa-random fa-2x" title="random"></i>
                                 </div>
                                 <div class="prev-track" onclick="prevTrack()">
-                                     <i class="fa fa-step-backward fa-2x"></i>
-                                 </div>
-                                 <div class="playpause-track" onclick="playpauseTrack()">
-                                     <i class="fa fa-play-circle fa-5x"></i>
-                                 </div>
-                                 <div class="next-track" onclick="nextTrack()">
-                                     <i class="fa fa-step-forward fa-2x"></i>
-                                 </div>
-                                 <div class="repeat-track" onclick="repeatTrack()">
-                                     <i class="fa fa-repeat fa-2x" title="repeat"></i>
-                                 </div>
+                                    <i class="fa fa-step-backward fa-2x"></i>
+                                </div>
+                                <div class="playpause-track" onclick="playpauseTrack()">
+                                    <i class="fa fa-play-circle fa-5x"></i>
+                                </div>
+                                <div class="next-track" onclick="nextTrack()">
+                                    <i class="fa fa-step-forward fa-2x"></i>
+                                </div>
+                                <div class="repeat-track" onclick="repeatTrack()">
+                                    <i class="fa fa-repeat fa-2x" title="repeat"></i>
+                                </div>
                             </div>
-                 
-                             <div id="wave">
-                                 <span class="stroke"></span>
-                                 <span class="stroke"></span>
-                                 <span class="stroke"></span>
-                                 <span class="stroke"></span>
-                                 <span class="stroke"></span>
-                                 <span class="stroke"></span>
-                                 <span class="stroke"></span>
-                             </div>  
+
+                            <div id="wave">
+                                <span class="stroke"></span>
+                                <span class="stroke"></span>
+                                <span class="stroke"></span>
+                                <span class="stroke"></span>
+                                <span class="stroke"></span>
+                                <span class="stroke"></span>
+                                <span class="stroke"></span>
+                            </div>
                         </div>
                     </div>
                     <!-- End of Music Player -->
 
                     <!--For Game-->
-                      <canvas id="board"></canvas>
+                    <canvas id="board"></canvas>
                     <!--End of Game-->
 
                     <!--For Call App-->
-                        <div id="caller"></div>
+                    <div id="caller"></div>
                     <!--End of Call App-->
 
                     <!--Contacts App-->
-                        <div id="contact">
-                            <h1>Contacts</h1>
-                            <div>
-                                <label for="contactName">Name:</label>
-                                <input type="text" id="contactName">
-                            </div>
-                            <div>
-                                <label for="contactNumber">Mobile Number:</label>
-                                <input type="number" id="contactNumber">
-                            </div>
-                            <button onclick="saveContact()">Save Contact</button>
+                    <div id="contact">
+                        <h1>Contacts</h1>
+                        <div id="displayContact">No contacts yet</div>
+                        <button onclick="createNewContact()" title="Create a new contact"><img src="./image/plus.png"
+                                alt=""></button>
+                    </div>
 
-                            <div id="displayContact"></div>
+                    <div id="newContact">
+                        <div class="newContact-btn">
+                            <button onclick="goBackContact()">
+                                <img src="image/backbtn.png" alt="" title="go back">
+                            </button>
+                            <button onclick="saveContact()"><img src="image/tick.png" alt="" title="Save"></button>
                         </div>
+                        <p>Create new contact</p>
+                        <img src="image/contactcamera.png" alt="" id="contactCamera">
+                        <div class="contact-name-wrapper">
+                            <img src="image/person.png" alt="" width="15" height="15" id="personIcon">
+                            <input type="text" id="contactName" placeholder="First name" required>
+                            <input type="text" id="contactLastName" placeholder="Last name" required>
+                        </div>
+                        <div class="phone-contact-number">
+                            <img src="image/contactphone.png" alt="" width="22" height="22">
+                            <input type="number" id="contactNumber" placeholder="Phone Number" required>
+                            <select name="Mobile" id="">
+                                <option value="">Mobile</option>
+                                <option value="">Home</option>
+                                <option value="">Work</option>
+                                <option value="">Other</option>
+                                <option value="">Custom</option>
+                            </select>
+                        </div>
+
+                        <!-- <h1>OR</h1> -->
+                        
+                        <div class="email-contact-wrapper">
+                            <img src="image/email.png" alt="" width="22" height="22">
+                            <input type="email" placeholder="Email" id="emailInput">
+                            <select name="Home" id="">
+                                <option value="">Home</option>
+                                <option value="">Work</option>
+                                <option value="">Other</option>
+                                <option value="">Custom</option>
+                            </select>
+                        </div>
+
+                        <div id="moreFieldBtn">
+                            <button onclick="moreField()">More Fields</button>
+                        </div>
+
+                        <div id="moreField">
+                            <div>
+                                <img src="image/date.png" alt="" width="15" height="15">
+                                <input type="date">
+                                <select name="Birthday" id="">
+                                    <option>Birthday</option>
+                                    <option>Anniversary</option>
+                                    <option>Other</option>
+                                    <option>Custom</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <input type="text" placeholder="Relationship">
+                                <select name="Assistant" id="">
+                                    <option>Assistant</option>
+                                    <option>Brother</option>
+                                    <option>Child</option>
+                                    <option>Domestic Partner</option>
+                                    <option>Father</option>
+                                    <option>Friend</option>
+                                    <option>Manager</option>
+                                    <option>Mother</option>
+                                    <option>Parent</option>
+                                    <option>Partner</option>
+                                    <option>Referred by</option>
+                                    <option>Relative</option>
+                                    <option>Sister</option>
+                                    <option>Spouse</option>
+                                    <option>Custom</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <img src="image/notes.png" alt="" width="15" height="15">
+                                <input type="text" placeholder="Notes">
+                            </div>
+
+                            <div>
+                                <img src="image/label.png" alt="" width="50" height="50">
+                                <select name="" id="">
+                                    <option>Coworkers</option>
+                                    <option>Family</option>
+                                    <option>Friends</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
                     <!--End of Contacts App-->
 
                     <!--Messages App-->
-                        <div id="messenger"></div>
+                    <div id="messenger"></div>
                     <!--End of Messages App-->
 
                     <!--Chrome App-->
-                        <div id="chromeBrowser"></div>
+                    <div id="chromeBrowser"></div>
                     <!--End of Chrome App-->
 
                     <!--For Camera-->
@@ -227,7 +313,8 @@
                         <canvas id="canvas"></canvas>
                         <div class="cameraBtn">
                             <button onclick="startWebCam()" id="cambtn1">START WEBCAM</button>
-                            <a download onclick="takeAPicture()" style="border-radius: 50%;"><img src="image/camsnap.png"></a>
+                            <a download onclick="takeAPicture()" style="border-radius: 50%;"><img
+                                    src="image/camsnap.png"></a>
                             <button onclick="stopWebCam()" id="cambtn2">STOP WEBCAM</button>
                         </div>
                     </div>

@@ -124,6 +124,7 @@ let music = document.getElementById("player");
 let game = document.getElementById("board");
 let callApp = document.getElementById("caller");
 let contact = document.getElementById("contact");
+let newContact = document.getElementById("newContact");
 let messenger = document.getElementById("messenger");
 let chromeBrowser = document.getElementById("chromeBrowser");
 let isScreenVisible = false;
@@ -162,6 +163,11 @@ messenger.addEventListener("dblclick", function(event) {
 });
 
 contact.addEventListener("dblclick", function(event) {
+  // Prevent the double click event from reaching the phone screen
+  event.stopPropagation();
+});
+
+newContact.addEventListener("dblclick", function(event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
@@ -244,6 +250,7 @@ function goBackHome() {
   game.style.display = "none";
   messenger.style.display = "none";
   contact.style.display = "none";
+  newContact.style.display = "none";
   chromeBrowser.style.display = "none";
   webcam.stop();
 }
@@ -291,3 +298,53 @@ function openMusicApp() {
 }
 
 // End of Music App
+
+//Contacts App
+
+function createNewContact() {
+  newContact.style.display = "block";
+  contact.style.display = "none";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
+}
+
+function goBackContact() {
+  newContact.style.display = "none";
+  contact.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
+}
+
+function saveContact() {
+  let contactNumber = document.getElementById("contactNumber");
+  let contactName = document.getElementById("contactName");
+  let contactLastName = document.getElementById("contactLastName");
+  let contactEmail = document.getElementById("emailInput");
+  let contactDisplay = document.getElementById("displayContact");
+
+  contactDisplay.innerText = `
+    ${contactName.value}
+    ${contactLastName.value}
+    ${contactNumber.value}
+    ${contactEmail.value}
+  `
+
+  contactNumber.value = "";
+  contactLastName.value = '';
+  contactEmail.value = '';
+  contactName.value = "";
+
+  newContact.style.display = "none";
+  contact.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
+};
+
+function moreField() {
+  let otherFields = document.getElementById("moreField");
+  let moreFieldBtn = document.getElementById("moreFieldBtn");
+  otherFields.style.display = "block";
+  moreFieldBtn.style.display = "none";
+}
+// End of Contacts App
+
