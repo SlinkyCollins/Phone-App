@@ -200,7 +200,7 @@
                     <!--Contacts App-->
                     <div id="contact">
                         <h1>Contacts</h1>
-                        <div id="displayContact">No contacts yet</div>
+                        <div id="displayContact"></div>
                         <button onclick="createNewContact()" title="Create a new contact"><img src="./image/plus.png"
                                 alt=""></button>
                     </div>
@@ -222,12 +222,12 @@
                         <div class="phone-contact-number">
                             <img src="image/contactphone.png" alt="" width="22" height="22">
                             <input type="number" id="contactNumber" placeholder="Phone Number" required>
-                            <select name="Mobile" id="">
-                                <option value="">Mobile</option>
-                                <option value="">Home</option>
-                                <option value="">Work</option>
-                                <option value="">Other</option>
-                                <option value="">Custom</option>
+                            <select id="phoneSelect">
+                                <option >Mobile</option>
+                                <option>Home</option>
+                                <option>Work</option>
+                                <option>Other</option>
+                                <option>Custom</option>
                             </select>
                         </div>
 
@@ -236,11 +236,11 @@
                         <div class="email-contact-wrapper">
                             <img src="image/email.png" alt="" width="22" height="22">
                             <input type="email" placeholder="Email" id="emailInput">
-                            <select name="Home" id="">
-                                <option value="">Home</option>
-                                <option value="">Work</option>
-                                <option value="">Other</option>
-                                <option value="">Custom</option>
+                            <select id="emailSelect">
+                                <option>Home</option>
+                                <option>Work</option>
+                                <option>Other</option>
+                                <option>Custom</option>
                             </select>
                         </div>
 

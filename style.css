@@ -114,6 +114,10 @@ h1 {
     width: 150px;
 }
 
+.select-container select:hover {
+    border-color: #12d640;
+}
+
 .button-container button {
     padding: 10px;
     margin-bottom: 20px;
@@ -555,9 +559,13 @@ canvas {
     background-color: #fff;
     text-align: center;
     padding: 20px;
+    overflow-y: auto;
     position: relative;
 }
 
+#contact::-webkit-scrollbar {
+    width: 0.5em;
+}
 
 #contact button {
     border: none;
@@ -652,7 +660,7 @@ canvas {
 
 #moreFieldBtn button:hover {
     /* opacity: 0.9; */
-    background-color: rgb(224, 222, 222);
+    background-color: rgb(167, 158, 158);
 }
 
 #newContact div > input{
@@ -717,6 +725,10 @@ canvas {
     margin: 10px 0px 0px 30px;
 }
 
+.phone-contact-number select:hover {
+    border-color: #12d640;
+}
+
 .email-contact-wrapper {
     margin: 15px 0px 0px 0px;
 }
@@ -729,6 +741,11 @@ canvas {
     outline: none;
     margin: 10px 0px 0px 30px;
 }
+
+.email-contact-wrapper select:hover {
+    border-color: #12d640;
+}
+
 
     
 

@@ -315,24 +315,52 @@ function goBackContact() {
   wallpaper.style.display = "none";
 }
 
+  let allContacts = [];
+
 function saveContact() {
-  let contactNumber = document.getElementById("contactNumber");
-  let contactName = document.getElementById("contactName");
-  let contactLastName = document.getElementById("contactLastName");
-  let contactEmail = document.getElementById("emailInput");
+  let allContacts = [];
+  let contactNumber = document.getElementById("contactNumber").value;
+  let contactName = document.getElementById("contactName").value;
+  let contactLastName = document.getElementById("contactLastName").value;
+  let contactEmail = document.getElementById("emailInput").value;
+  let emailSelect = document.getElementById("emailSelect").value;
+  let phoneSelect = document.getElementById("phoneSelect").value;
+
+
+  let contactObj = {contactName, contactLastName, contactNumber, phoneSelect, contactEmail, emailSelect}
+
+  allContacts.push(contactObj);
+
   let contactDisplay = document.getElementById("displayContact");
+    
+    for (let i = 0; i < allContacts.length; i++) {
+      // let element = allContacts[i];
+      contactDisplay.innerHTML += `
+      <div style="padding:20px; border:1px solid #000; border-radius:10px; margin:20px;">
+        <p>${allContacts[0].contactName}</p>  
+        <p>${allContacts[0].contactLastName}</p>
+        <p>${allContacts[0].contactNumber}</p>
+        <p>${allContacts[0].phoneSelect}</p>
+        <p>${allContacts[0].contactEmail}</p>
+        <p>${allContacts[0].emailSelect}</p>
+      </div>
+      `;
+    }
 
-  contactDisplay.innerText = `
-    ${contactName.value}
-    ${contactLastName.value}
-    ${contactNumber.value}
-    ${contactEmail.value}
-  `
+    // allContacts.map((index) => {
+    //   contactDisplay.innerHTML += `
+    //   <div style="padding:20px; border:1px solid #000; border-radius:10px; margin:20px;">
+    //     <p>${allContacts[0].contactName}</p>  
+    //     <p>${allContacts[0].contactLastName}</p>
+    //     <p>${allContacts[0].contactNumber}</p>
+    //     <p>${allContacts[0].phoneSelect}</p>
+    //     <p>${allContacts[0].contactEmail}</p>
+    //     <p>${allContacts[0].emailSelect}</p>
+    //   </div>
+    //   `;
+    // })
 
-  contactNumber.value = "";
-  contactLastName.value = '';
-  contactEmail.value = '';
-  contactName.value = "";
+  console.log(allContacts);
 
   newContact.style.display = "none";
   contact.style.display = "block";
