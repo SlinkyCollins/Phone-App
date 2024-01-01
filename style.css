@@ -567,7 +567,7 @@ canvas {
     width: 0.5em;
 }
 
-#contact button {
+#plusBtn {
     border: none;
     outline: none;
     border-radius: 50px;
@@ -579,11 +579,11 @@ canvas {
     cursor: pointer;
 }
 
-#contact button:hover {
+#plusBtn:hover {
     opacity: 0.9;
 }
 
-#contact button img {
+#plusBtn img {
     width: 25px;
     height: 25px;
     object-fit: cover;
@@ -745,6 +745,27 @@ canvas {
 .email-contact-wrapper select:hover {
     border-color: #12d640;
 }
+
+#showErrorContact {
+    display: none;
+    color: red;
+}
+
+#checkContactError {
+    display: none;
+}
+
+#contactWrapper {
+   width: 50px; 
+   height: 40px; 
+   padding: 10px; 
+   border: 1px solid #ccc;
+}
+#contactWrapper button {
+    position: relative;
+    top: 0;
+}
+
 
 
     

@@ -132,7 +132,7 @@ let isScreenVisible = false;
 screen.style.display = "none";
 
 phone.addEventListener("dblclick", function (event) {
-  if(event.target.closest("player")){
+  if (event.target.closest("player")) {
     // Clicking inside the player app, do nothing
     return;
   }
@@ -152,42 +152,42 @@ function togglePhoneScreen() {
   }
 }
 
-chromeBrowser.addEventListener("dblclick", function(event) {
+chromeBrowser.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
 
-messenger.addEventListener("dblclick", function(event) {
+messenger.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
 
-contact.addEventListener("dblclick", function(event) {
+contact.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
 
-newContact.addEventListener("dblclick", function(event) {
+newContact.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
 
-callApp.addEventListener("dblclick", function(event) {
+callApp.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
 
-game.addEventListener("dblclick", function(event) {
+game.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
 
-music.addEventListener("dblclick", function(event) {
+music.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
 
-calculator.addEventListener("dblclick", function(event) {
+calculator.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
@@ -202,10 +202,10 @@ function openGameApp() {
 
 
 function openCalculator() {
-    calculator.style.display = "block";
-    innerScreen.style.display = "none";
-    wallpaper.style.display = "none";
-    // screen.style.display = "none";
+  calculator.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
+  // screen.style.display = "none";
 }
 
 
@@ -258,7 +258,7 @@ function goBackHome() {
 // Camera Script
 let camera = document.getElementById("cameraWrapper");
 
-camera.addEventListener("dblclick", function(event) {
+camera.addEventListener("dblclick", function (event) {
   // Prevent the double click event from reaching the phone screen
   event.stopPropagation();
 });
@@ -302,10 +302,19 @@ function openMusicApp() {
 //Contacts App
 
 function createNewContact() {
+  let contactName = document.getElementById("contactName").value;
+  let contactNumber = document.getElementById("contactNumber").value;
+  let otherFields = document.getElementById("moreField");
+  let moreFieldBtn = document.getElementById("moreFieldBtn");
+  moreFieldBtn.style.display = "block";
+  otherFields.style.display = "none";
   newContact.style.display = "block";
   contact.style.display = "none";
   innerScreen.style.display = "none";
   wallpaper.style.display = "none";
+
+  contactName.value = "";
+  contactNumber.value = "";
 }
 
 function goBackContact() {
@@ -315,64 +324,128 @@ function goBackContact() {
   wallpaper.style.display = "none";
 }
 
-  let allContacts = [];
+let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Load contacts from local storage or initialize an empty array
+  // let cErr = document.getElementById("checkContactError");
+
+  // // Check if there are contacts to display
+  // if (allContacts.length === 0) {
+  //   cErr.textContent = "Please create a new contact";
+  // } else {
+  //   // cErr.style.display = "none";
+  //   cErr.textContent = "Contacts are available";
+  // }
+});
 
 function saveContact() {
-  let allContacts = [];
-  let contactNumber = document.getElementById("contactNumber").value;
   let contactName = document.getElementById("contactName").value;
-  let contactLastName = document.getElementById("contactLastName").value;
-  let contactEmail = document.getElementById("emailInput").value;
-  let emailSelect = document.getElementById("emailSelect").value;
-  let phoneSelect = document.getElementById("phoneSelect").value;
+  let contactNumber = document.getElementById("contactNumber").value;
+  let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
 
 
-  let contactObj = {contactName, contactLastName, contactNumber, phoneSelect, contactEmail, emailSelect}
+  if (!contactName || !contactNumber) {
+    alert('Please enter both name and phone number.');
+    return;
+  }
+
+  let contactObj = { contactName, contactNumber };
 
   allContacts.push(contactObj);
 
-  let contactDisplay = document.getElementById("displayContact");
-    
-    for (let i = 0; i < allContacts.length; i++) {
-      // let element = allContacts[i];
-      contactDisplay.innerHTML += `
-      <div style="padding:20px; border:1px solid #000; border-radius:10px; margin:20px;">
-        <p>${allContacts[0].contactName}</p>  
-        <p>${allContacts[0].contactLastName}</p>
-        <p>${allContacts[0].contactNumber}</p>
-        <p>${allContacts[0].phoneSelect}</p>
-        <p>${allContacts[0].contactEmail}</p>
-        <p>${allContacts[0].emailSelect}</p>
-      </div>
-      `;
-    }
+  localStorage.setItem('contacts', JSON.stringify(allContacts));
 
-    // allContacts.map((index) => {
-    //   contactDisplay.innerHTML += `
-    //   <div style="padding:20px; border:1px solid #000; border-radius:10px; margin:20px;">
-    //     <p>${allContacts[0].contactName}</p>  
-    //     <p>${allContacts[0].contactLastName}</p>
-    //     <p>${allContacts[0].contactNumber}</p>
-    //     <p>${allContacts[0].phoneSelect}</p>
-    //     <p>${allContacts[0].contactEmail}</p>
-    //     <p>${allContacts[0].emailSelect}</p>
-    //   </div>
-    //   `;
-    // })
-
-  console.log(allContacts);
+  contactName.value = "";
+  contactNumber.value = "";
 
   newContact.style.display = "none";
   contact.style.display = "block";
   innerScreen.style.display = "none";
   wallpaper.style.display = "none";
+
+  displayContacts();
 };
+
+
+function displayContacts() {
+  let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
+  let contactDisplay = document.getElementById("displayContact");
+  let cErr = document.getElementById("checkContactError");
+
+  localStorage.setItem('contacts', JSON.stringify(allContacts));
+
+  contactDisplay.innerHTML = '';
+
+  if (allContacts.length === 0) {
+    cErr.style.display = 'block';
+    console.log("no contacts found");
+  } else {
+    cErr.style.display = 'none';
+    console.log("contact found");
+  }
+
+  allContacts.forEach(function (i) {
+    let contactItem = allContacts[0];
+    contactDisplay.innerHTML = `
+      <div id="contactWrapper">
+        <p><strong>Name:</strong> ${contactItem.contactName}</p>
+        <p><strong>Phone:</strong> ${contactItem.contactNumber}</p>
+        <button onclick="editContact(${i})">Edit</button>
+        <button onclick="deleteContact(${i})">Delete</button>
+      </div>
+    `;
+  });
+}
 
 function moreField() {
   let otherFields = document.getElementById("moreField");
   let moreFieldBtn = document.getElementById("moreFieldBtn");
   otherFields.style.display = "block";
   moreFieldBtn.style.display = "none";
+}
+
+function editContact(i) {
+  allContacts[i]["contactName"] = document.getElementById(`contactName-${i}`).value;
+  allContacts[i]["contactNumber"] = document.getElementById(`contactNumber-${i}`).value;
+
+
+  const editedName = prompt('Enter the new name:',  allContacts[i]["contactName"]);
+  const editedPhone = prompt('Enter the new phone number:', allContacts[i]["contactNumber"]);
+  
+  // Update the contact details
+  allContacts[i]["contactName"] = editedName.trim();
+  allContacts[i]["contactNumber"] = editedPhone.trim();
+
+  // Check if the user clicked "Cancel" or entered empty values
+  if (editedName === null || editedPhone === null || editedName.trim() === '' || editedPhone.trim() === '') {
+      alert('Edit canceled or invalid input.');
+      return;
+  }
+
+
+  // Save the updated contacts to local storage
+  localStorage.setItem('contacts', JSON.stringify(allContacts));
+  
+  contactDisplay.innerHTML = ``;
+
+  // Display the updated contact list
+  displayContacts();
+}
+
+function deleteContact(i) {
+  // // Remove the contact from the array
+  // allContacts.splice(index, 1);
+
+  // // Save the updated contacts to local storage
+  // localStorage.setItem('contacts', JSON.stringify(allContacts));
+
+  allContacts.splice(i, 1);
+  contactDisplay.innerHTML = ``;
+  localStorage.setItem('contacts', JSON.stringify(allContacts));
+
+  // Display the updated contact list
+  displayContacts();
 }
 // End of Contacts App
 

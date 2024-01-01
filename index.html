@@ -200,8 +200,10 @@
                     <!--Contacts App-->
                     <div id="contact">
                         <h1>Contacts</h1>
+                        <div id="showErrorContact"></div>
+                        <p id="checkContactError">No contacts found</p>
                         <div id="displayContact"></div>
-                        <button onclick="createNewContact()" title="Create a new contact"><img src="./image/plus.png"
+                        <button onclick="createNewContact()" title="Create a new contact" id="plusBtn"><img src="./image/plus.png"
                                 alt=""></button>
                     </div>
 
@@ -216,39 +218,30 @@
                         <img src="image/contactcamera.png" alt="" id="contactCamera">
                         <div class="contact-name-wrapper">
                             <img src="image/person.png" alt="" width="15" height="15" id="personIcon">
-                            <input type="text" id="contactName" placeholder="First name" required>
-                            <input type="text" id="contactLastName" placeholder="Last name" required>
+                            <input type="text" id="contactName" placeholder="Name" required>
                         </div>
                         <div class="phone-contact-number">
                             <img src="image/contactphone.png" alt="" width="22" height="22">
                             <input type="number" id="contactNumber" placeholder="Phone Number" required>
-                            <select id="phoneSelect">
-                                <option >Mobile</option>
-                                <option>Home</option>
-                                <option>Work</option>
-                                <option>Other</option>
-                                <option>Custom</option>
-                            </select>
-                        </div>
-
-                        <!-- <h1>OR</h1> -->
-                        
-                        <div class="email-contact-wrapper">
-                            <img src="image/email.png" alt="" width="22" height="22">
-                            <input type="email" placeholder="Email" id="emailInput">
-                            <select id="emailSelect">
-                                <option>Home</option>
-                                <option>Work</option>
-                                <option>Other</option>
-                                <option>Custom</option>
-                            </select>
-                        </div>
+                        </div>                        
 
                         <div id="moreFieldBtn">
                             <button onclick="moreField()">More Fields</button>
                         </div>
 
                         <div id="moreField">
+
+                            <div class="email-contact-wrapper">
+                                <img src="image/email.png" alt="" width="22" height="22">
+                                <input type="email" placeholder="Email">
+                                <select>
+                                    <option>Home</option>
+                                    <option>Work</option>
+                                    <option>Other</option>
+                                    <option>Custom</option>
+                                </select>
+                            </div>
+
                             <div>
                                 <img src="image/date.png" alt="" width="15" height="15">
                                 <input type="date">
