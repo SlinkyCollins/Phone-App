@@ -607,10 +607,7 @@ canvas {
     text-align: center;
     font-size: 15px;
     font-weight: bold;
-    /* padding: 10px; */
-    position: absolute;
-    top: 24px;
-    margin-left: 35px;
+    margin: -24px 0px 0px -45px;
 }
 
 .newContact-btn button {
@@ -628,13 +625,13 @@ canvas {
 }
 
 #contactCamera {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     background-color: #12d640;
     border-radius: 50%;
-    padding: 15px;
-    margin: 10px 0px 10px 100px;
+    padding: 18px;
+    margin: 20px 0px 10px 100px;
 }
 
 #moreField {
@@ -720,15 +717,6 @@ canvas {
     margin: 0px 0px 0px 0px;
 }
 
-.phone-contact-number select {
-    outline: none;
-    margin: 10px 0px 0px 30px;
-}
-
-.phone-contact-number select:hover {
-    border-color: #12d640;
-}
-
 .email-contact-wrapper {
     margin: 15px 0px 0px 0px;
 }
@@ -765,6 +753,81 @@ canvas {
     position: relative;
     top: 0;
 }
+
+.userdate {
+    margin: 15px 0px 0px 0px; 
+}
+
+.userdate select {
+    outline: none;
+    margin: 10px 0px 0px 30px;
+}
+
+.userdate select:hover {
+    border-color: #12d640;
+}
+
+#userdateinputimage {
+    display: flex;
+    gap: 7px;
+}
+
+
+#userdate-img img{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    margin-top: 3px;
+}
+
+.userNotes {
+    display: flex;
+    /* gap: 5px; */
+    margin-top: 15px;
+}
+
+#notesIcon img{
+    width: 23px;
+    height: 23px;
+    object-fit: cover;
+    margin: 2px 6px 0px -3px;
+}
+
+.userAddress {
+    margin: 15px 0px 0px 0px;
+}
+
+.userAddress select {
+    outline: none;
+    margin: 10px 0px 0px 30px;
+}
+
+.userAddress select:hover {
+    border-color: #12d640;
+}
+
+#locationImageInputDiv {
+    display: flex;
+    /* gap: 7px; */
+}
+
+#locationImageId img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    margin: 2px 10px 0px -3px;
+}
+
+#locationInput {
+    margin-top: -5px;
+}
+
+#locationInput input {
+    margin: 5px 0px;
+}
+
+
+
 
 
 
