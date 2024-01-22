@@ -324,26 +324,11 @@ function goBackContact() {
   wallpaper.style.display = "none";
 }
 
-// let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Load contacts from local storage or initialize an empty array
-  // let cErr = document.getElementById("checkContactError");
-
-  // // Check if there are contacts to display
-  // if (allContacts.length === 0) {
-  //   cErr.textContent = "Please create a new contact";
-  // } else {
-  //   // cErr.style.display = "none";
-  //   cErr.textContent = "Contacts are available";
-  // }
-});
 
 function saveContact() {
   let contactName = document.getElementById("contactName").value;
   let contactNumber = document.getElementById("contactNumber").value;
   let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
-
 
   if (!contactName || !contactNumber) {
     alert('Please enter both name and phone number.');
@@ -355,9 +340,6 @@ function saveContact() {
   allContacts.push(contactObj);
 
   localStorage.setItem('contacts', JSON.stringify(allContacts));
-
-  // contactName.value = "";
-  // contactNumber.value = "";
 
   newContact.style.display = "none";
   contact.style.display = "block";
