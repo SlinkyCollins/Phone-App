@@ -743,7 +743,7 @@ canvas {
     display: none;
 }
 
-#contactWrapper {
+/* #contactWrapper {
    width: 50px; 
    height: 40px; 
    padding: 10px; 
@@ -752,7 +752,7 @@ canvas {
 #contactWrapper button {
     position: relative;
     top: 0;
-}
+} */
 
 .userdate {
     margin: 15px 0px 0px 0px; 

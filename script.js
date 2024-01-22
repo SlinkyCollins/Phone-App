@@ -324,7 +324,7 @@ function goBackContact() {
   wallpaper.style.display = "none";
 }
 
-let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
+// let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
 
 document.addEventListener("DOMContentLoaded", function () {
   // Load contacts from local storage or initialize an empty array
@@ -356,8 +356,8 @@ function saveContact() {
 
   localStorage.setItem('contacts', JSON.stringify(allContacts));
 
-  contactName.value = "";
-  contactNumber.value = "";
+  // contactName.value = "";
+  // contactNumber.value = "";
 
   newContact.style.display = "none";
   contact.style.display = "block";
@@ -385,9 +385,9 @@ function displayContacts() {
     console.log("contact found");
   }
 
-  allContacts.forEach(function (i) {
-    let contactItem = allContacts[0];
-    contactDisplay.innerHTML = `
+  for (let i=0; i < allContacts.length; i++) {
+    let contactItem = allContacts[0+i];
+    contactDisplay.innerHTML += `
       <div id="contactWrapper">
         <p><strong>Name:</strong> ${contactItem.contactName}</p>
         <p><strong>Phone:</strong> ${contactItem.contactNumber}</p>
@@ -395,7 +395,19 @@ function displayContacts() {
         <button onclick="deleteContact(${i})">Delete</button>
       </div>
     `;
-  });
+  }
+
+  // allContacts.map(function (i) {
+  //   let contactItem = allContacts[0];
+  //   contactDisplay.innerHTML += `
+  //     <div id="contactWrapper">
+  //       <p><strong>Name:</strong> ${contactItem.contactName}</p>
+  //       <p><strong>Phone:</strong> ${contactItem.contactNumber}</p>
+  //       <button onclick="editContact(${i})">Edit</button>
+  //       <button onclick="deleteContact(${i})">Delete</button>
+  //     </div>
+  //   `;
+  // });
 }
 
 function moreField() {
@@ -405,47 +417,48 @@ function moreField() {
   moreFieldBtn.style.display = "none";
 }
 
-function editContact(i) {
-  allContacts[i]["contactName"] = document.getElementById(`contactName-${i}`).value;
-  allContacts[i]["contactNumber"] = document.getElementById(`contactNumber-${i}`).value;
+// function editContact(i) {
+//   allContacts[i]["contactName"] = document.getElementById(`contactName-${i}`).value;
+//   allContacts[i]["contactNumber"] = document.getElementById(`contactNumber-${i}`).value;
 
 
-  const editedName = prompt('Enter the new name:',  allContacts[i]["contactName"]);
-  const editedPhone = prompt('Enter the new phone number:', allContacts[i]["contactNumber"]);
+//   const editedName = prompt('Enter the new name:',  allContacts[i]["contactName"]);
+//   const editedPhone = prompt('Enter the new phone number:', allContacts[i]["contactNumber"]);
   
-  // Update the contact details
-  allContacts[i]["contactName"] = editedName.trim();
-  allContacts[i]["contactNumber"] = editedPhone.trim();
+//   // Update the contact details
+//   allContacts[i]["contactName"] = editedName.trim();
+//   allContacts[i]["contactNumber"] = editedPhone.trim();
 
-  // Check if the user clicked "Cancel" or entered empty values
-  if (editedName === null || editedPhone === null || editedName.trim() === '' || editedPhone.trim() === '') {
-      alert('Edit canceled or invalid input.');
-      return;
-  }
+//   // Check if the user clicked "Cancel" or entered empty values
+//   if (editedName === null || editedPhone === null || editedName.trim() === '' || editedPhone.trim() === '') {
+//       alert('Edit canceled or invalid input.');
+//       return;
+//   }
 
 
-  // Save the updated contacts to local storage
-  localStorage.setItem('contacts', JSON.stringify(allContacts));
+//   // Save the updated contacts to local storage
+//   localStorage.setItem('contacts', JSON.stringify(allContacts));
   
-  contactDisplay.innerHTML = ``;
+//   contactDisplay.innerHTML = ``;
 
-  // Display the updated contact list
-  displayContacts();
-}
+//   // Display the updated contact list
+//   displayContacts();
+// }
 
-function deleteContact(i) {
-  // // Remove the contact from the array
-  // allContacts.splice(index, 1);
+// function deleteContact(i) {
+//   // // Remove the contact from the array
+//   // allContacts.splice(index, 1);
 
-  // // Save the updated contacts to local storage
-  // localStorage.setItem('contacts', JSON.stringify(allContacts));
+//   // // Save the updated contacts to local storage
+//   // localStorage.setItem('contacts', JSON.stringify(allContacts));
 
-  allContacts.splice(i, 1);
-  contactDisplay.innerHTML = ``;
-  localStorage.setItem('contacts', JSON.stringify(allContacts));
+//   allContacts.splice(i, 1);
+//   contactDisplay.innerHTML = ``;
+//   localStorage.setItem('contacts', JSON.stringify(allContacts));
 
-  // Display the updated contact list
-  displayContacts();
-}
+//   // Display the updated contact list
+//   displayContacts();
+// }
+
 // End of Contacts App
 
