@@ -389,10 +389,11 @@ function displayContacts() {
     let contactItem = allContacts[0+i];
     contactDisplay.innerHTML += `
       <div id="contactWrapper">
+      <p>${i+1}.</p>
         <p><strong>Name:</strong> ${contactItem.contactName}</p>
-        <p><strong>Phone:</strong> ${contactItem.contactNumber}</p>
-        <button onclick="editContact(${i})">Edit</button>
-        <button onclick="deleteContact(${i})">Delete</button>
+        <p><strong>Phone No:</strong> ${contactItem.contactNumber}</p>
+        <button onclick="editContact(${i})" id="editUserContact">Edit</button>
+        <button onclick="deleteContact(${i})" id="deleteUserContact">Delete</button>
       </div>
     `;
   }
