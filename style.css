@@ -549,6 +549,12 @@ canvas {
     height: 455px;
     margin-left: -200px;
     background-color: #fff;
+    text-align: center;
+}
+
+#caller p {
+    padding: 10px;
+    font-size: 15px;
 }
 
 #contact {
@@ -693,17 +699,48 @@ canvas {
 #messenger {
     display: none;
     width: 300px;
-    height: 455px;
+    height: 450px;
     margin-left: -200px;
     background-color: #fff;
+    text-align: center;
+    margin-top: -10px;
+}
+
+#messenger h1 {
+    font-size: 38px;
+    margin-left: -80px;
+    padding: 10px;
+}
+
+#messenger p {
+    padding: 140px 0px 0px 0px;
+    font-size: 20px;
 }
 
 #chromeBrowser {
     display: none;
     width: 300px;
-    height: 455px;
+    height: 450px;
     margin-left: -200px;
     background-color: #fff;
+    margin-top: -10px;
+    text-align: center;
+}
+
+#chromeBrowser input {
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    height: auto;
+    border: 1px solid lightgrey;
+    text-align: left;
+    margin: 0px 0px 0px 10px;
+}
+
+#chromeBrowser h1 {
+    padding: 25px;
+    font-size: 35px;
+    color: #1fb742;
 }
 
 .phone-contact-number {
