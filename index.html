@@ -306,11 +306,24 @@
 
                     <!--Chrome App-->
                     <div id="chromeBrowser">
-                        <h1>Google</h1>
-                        <input type="text" placeholder="Type your search here and tap Search...">
-                        <button onclick="performSearch()">Search</button>
+                        <div class="chrome-header">
+                            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                                alt="Google Logo" class="google-logo">
+                        </div>
+                        <div class="chrome-search-bar">
+                            <input type="text" placeholder="Search Google or type a URL" id="searchInput">
+                            <button onclick="performSearch()" class="search-btn">
+                                <img src="https://img.icons8.com/ios-filled/50/000000/search.png" alt="Search"
+                                    class="search-icon">
+                            </button>
+                        </div>
+                        <div class="chrome-content">
+                            <p>Welcome to Google Chrome!</p>
+                            <p>Type a query and tap search to explore.</p>
+                        </div>
                     </div>
                     <!--End of Chrome App-->
+
 
                     <!--For Camera-->
                     <div id="cameraWrapper">

@@ -722,25 +722,110 @@ canvas {
     width: 300px;
     height: 450px;
     margin-left: -200px;
-    background-color: #fff;
+    background: #f8f9fa;
     margin-top: -10px;
-    text-align: center;
-}
-
-#chromeBrowser input {
-    padding: 15px;
     border-radius: 10px;
-    width: 200px;
-    height: auto;
-    border: 1px solid lightgrey;
-    text-align: left;
-    margin: 0px 0px 0px 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
-#chromeBrowser h1 {
-    padding: 25px;
-    font-size: 35px;
-    color: #1fb742;
+.chrome-header {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+}
+
+.google-logo {
+    width: 80px;
+    height: auto;
+}
+
+.chrome-search-bar {
+    width: 90%;
+    max-width: 280px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+}
+
+.search-btn {
+    padding: 10px;
+    border: none;
+    background: #4285f4;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background 0.3s ease;
+}
+
+.search-btn:hover {
+    background: #3367d6;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.chrome-content {
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+.chrome-content p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    #chromeBrowser {
+        width: 280px;
+        height: 400px;
+        margin-left: -190px;
+    }
+    .chrome-header {
+        height: 50px;
+    }
+    .google-logo {
+        width: 70px;
+    }
+    .chrome-search-bar {
+        width: 95%;
+        max-width: 260px;
+    }
+    #searchInput {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+    .search-btn {
+        padding: 8px;
+    }
+    .chrome-content {
+        padding: 15px;
+    }
+    .chrome-content p {
+        font-size: 12px;
+    }
 }
 
 .phone-contact-number {
