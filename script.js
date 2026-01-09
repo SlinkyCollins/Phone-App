@@ -441,32 +441,67 @@ function deleteContact(i) {
 
 // Messages App
 let messages = JSON.parse(localStorage.getItem('messages')) || [];
-let messageDisplay = document.getElementById("messenger");
 
 function sendMessage() {
-  let recipient = prompt('Enter recipient:');
-  let message = prompt('Enter message:');
-  if (recipient && message) {
-    messages.push({ recipient, message, timestamp: new Date().toLocaleString() });
+  let contactInput = document.getElementById("messageRecipient");
+  let messageInput = document.getElementById("messageText");
+  
+  let contact = contactInput.value;
+  let message = messageInput.value;
+
+  if (contact && message) {
+    messages.push({ 
+      contact, 
+      message, 
+      timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+      type: 'sent' 
+    });
     localStorage.setItem('messages', JSON.stringify(messages));
+    
+    // Clear inputs
+    contactInput.value = '';
+    messageInput.value = '';
+    
     displayMessages();
+  } else {
+    // If inputs are hidden/empty (fallback for initial load if needed), maybe just prompt? 
+    // But UI has inputs now.
+    if(!contact && !message) alert("Please enter a contact and a message");
   }
 }
 
 function displayMessages() {
-  messageDisplay.innerHTML = '<h1>Messages</h1><button onclick="sendMessage()">Send Message</button>';
+  let list = document.getElementById("messagesList");
+  // Don't overwrite the header or inputs, just the list
+  list.innerHTML = ''; 
+  
   if (messages.length > 0) {
     messages.forEach(msg => {
-      messageDisplay.innerHTML += `<p><strong>To: ${msg.recipient}</strong> - ${msg.message} (${msg.timestamp})</p>`;
+      let msgDiv = document.createElement("div");
+      // Default to 'sent' if type is missing (legacy data)
+      let type = msg.type || 'sent';
+      // Handle legacy data that used 'recipient'
+      let contactName = msg.contact || msg.recipient || "Unknown";
+      
+      msgDiv.className = `message ${type}`;
+      msgDiv.innerHTML = `
+        <strong>To: ${contactName}</strong>
+        ${msg.message}
+        <small>${msg.timestamp}</small>
+      `;
+      list.appendChild(msgDiv);
     });
+    // Scroll to bottom
+    list.scrollTop = list.scrollHeight;
   } else {
-    messageDisplay.innerHTML += '<p>No chats yet!🤷‍♂️</p>';
+    list.innerHTML = '<p id="noMessages">No chats yet!🤷‍♂️</p>';
   }
 }
 
 // Call displayMessages() when opening the app
 function openMessagesApp() {
-  messenger.style.display = "block";
+  // Use flex to maintain the layout defined in CSS
+  messenger.style.display = "flex"; 
   innerScreen.style.display = "none";
   wallpaper.style.display = "none";
   displayMessages();

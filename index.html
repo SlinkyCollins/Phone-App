@@ -298,9 +298,17 @@
 
                     <!--Messages App-->
                     <div id="messenger">
-                        <h1>Messages</h1>
-                        <button onclick="sendMessage()">Send Message</button>
-                        <p>No chats yet!🤷‍♂️</p>
+                        <div class="messages-header">
+                            <h1>Messages</h1>
+                        </div>
+                        <div class="messages-list" id="messagesList">
+                            <p id="noMessages">No chats yet!🤷‍♂️</p>
+                        </div>
+                        <div class="message-input">
+                            <input type="text" id="messageRecipient" placeholder="Recipient">
+                            <input type="text" id="messageText" placeholder="Type a message...">
+                            <button onclick="sendMessage()">Send</button>
+                        </div>
                     </div>
                     <!--End of Messages App-->
 
