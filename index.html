@@ -205,11 +205,11 @@
                         <h1>Contacts</h1>
                         <div id="errorNoContactFound">
                             <img src="image/noContactsFound.gif" alt="" id="noContactGif">
-                            <p>No contacts found</p>        
+                            <p>No contacts found</p>
                         </div>
                         <div id="displayContact"></div>
-                            <button onclick="createNewContact()" title="Create a new contact" id="plusBtn"><img src="./image/plus.png"
-                                alt=""></button>
+                        <button onclick="createNewContact()" title="Create a new contact" id="plusBtn"><img
+                                src="./image/plus.png" alt=""></button>
                     </div>
 
                     <div id="newContact">
@@ -228,7 +228,7 @@
                         <div class="phone-contact-number">
                             <img src="image/contactphone.png" alt="" width="22" height="22">
                             <input type="number" id="contactNumber" placeholder="Phone Number" required>
-                        </div>                        
+                        </div>
 
                         <div id="moreFieldBtn">
                             <button onclick="moreField()">More Fields</button>
@@ -299,6 +299,7 @@
                     <!--Messages App-->
                     <div id="messenger">
                         <h1>Messages</h1>
+                        <button onclick="sendMessage()">Send Message</button>
                         <p>No chats yet!🤷‍♂️</p>
                     </div>
                     <!--End of Messages App-->
@@ -306,7 +307,8 @@
                     <!--Chrome App-->
                     <div id="chromeBrowser">
                         <h1>Google</h1>
-                        <input type="text" placeholder="Type your search here...">
+                        <input type="text" placeholder="Type your search here and tap Search...">
+                        <button onclick="performSearch()">Search</button>
                     </div>
                     <!--End of Chrome App-->
 

@@ -438,3 +438,58 @@ function deleteContact(i) {
 
 // End of Contacts App
 
+
+// Messages App
+let messages = JSON.parse(localStorage.getItem('messages')) || [];
+let messageDisplay = document.getElementById("messenger");
+
+function sendMessage() {
+  let recipient = prompt('Enter recipient:');
+  let message = prompt('Enter message:');
+  if (recipient && message) {
+    messages.push({ recipient, message, timestamp: new Date().toLocaleString() });
+    localStorage.setItem('messages', JSON.stringify(messages));
+    displayMessages();
+  }
+}
+
+function displayMessages() {
+  messageDisplay.innerHTML = '<h1>Messages</h1><button onclick="sendMessage()">Send Message</button>';
+  if (messages.length > 0) {
+    messages.forEach(msg => {
+      messageDisplay.innerHTML += `<p><strong>To: ${msg.recipient}</strong> - ${msg.message} (${msg.timestamp})</p>`;
+    });
+  } else {
+    messageDisplay.innerHTML += '<p>No chats yet!🤷‍♂️</p>';
+  }
+}
+
+// Call displayMessages() when opening the app
+function openMessagesApp() {
+  messenger.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
+  displayMessages();
+}
+
+// End of Messages App
+
+// Browser App
+function performSearch() {
+  let query = document.querySelector('#chromeBrowser input').value;
+  if (query) {
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+  }
+}
+
+// Update openChrome to add event listener
+function openChrome() {
+  chromeBrowser.style.display = "block";
+  innerScreen.style.display = "none";
+  wallpaper.style.display = "none";
+  document.querySelector('#chromeBrowser input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') performSearch();
+  });
+}
+
+// End of Browser App
