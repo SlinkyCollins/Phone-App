@@ -7,21 +7,21 @@ let context;
 //doodler
 let doodlerWidth = 46;
 let doodlerHeight = 46;
-let doodlerX = boardWidth/2 - doodlerWidth/2;
-let doodlerY = boardHeight*7/8 - doodlerHeight;
+let doodlerX = boardWidth / 2 - doodlerWidth / 2;
+let doodlerY = boardHeight * 7 / 8 - doodlerHeight;
 let doodlerRightImg;
 let doodlerLeftImg;
 
 let doodler = {
-    img : null,
-    x : doodlerX,
-    y : doodlerY,
-    width : doodlerWidth,
-    height : doodlerHeight
+    img: null,
+    x: doodlerX,
+    y: doodlerY,
+    width: doodlerWidth,
+    height: doodlerHeight
 }
 
 //physics
-let velocityX = 0; 
+let velocityX = 0;
 let velocityY = 0; //doodler jump speed
 let initialVelocityY = -8; //starting velocity Y
 let gravity = 0.4;
@@ -36,7 +36,7 @@ let score = 0;
 let maxScore = 0;
 let gameOver = false;
 
-window.onload = function() {
+window.onload = function () {
     board = document.getElementById("board");
     board.height = boardHeight;
     board.width = boardWidth;
@@ -50,7 +50,7 @@ window.onload = function() {
     doodlerRightImg = new Image();
     doodlerRightImg.src = "./image/doodler-right.png";
     doodler.img = doodlerRightImg;
-    doodlerRightImg.onload = function() {
+    doodlerRightImg.onload = function () {
         context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height);
     }
 
@@ -87,12 +87,16 @@ function update() {
     if (doodler.y > board.height) {
         gameOver = true;
     }
+    // Add win condition
+    if (score >= 400) {
+        gameOver = true;
+    }
     context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height);
 
     //platforms
     for (let i = 0; i < platformArray.length; i++) {
         let platform = platformArray[i];
-        if (velocityY < 0 && doodler.y < boardHeight*3/4) {
+        if (velocityY < 0 && doodler.y < boardHeight * 3 / 4) {
             platform.y -= initialVelocityY; //slide platform down
         }
         if (detectCollision(doodler, platform) && velocityY >= 0) {
@@ -113,8 +117,10 @@ function update() {
     context.font = "16px sans-serif";
     context.fillText(score, 5, 20);
 
-    if (gameOver) {
-        context.fillText("Game Over: Press 'Space' to Restart", boardWidth/7, boardHeight*7/8);
+    if (gameOver && score >=400) {
+        context.fillText("You Win! Press 'Space' to Restart", boardWidth/7, boardHeight*7/8);
+    } else if (gameOver) {
+        context.fillText("Game Over: Press 'Space' to Restart", boardWidth / 7, boardHeight * 7 / 8);
     }
 }
 
@@ -130,11 +136,11 @@ function moveDoodler(e) {
     else if (e.code == "Space" && gameOver) {
         //reset
         doodler = {
-            img : doodlerRightImg,
-            x : doodlerX,
-            y : doodlerY,
-            width : doodlerWidth,
-            height : doodlerHeight
+            img: doodlerRightImg,
+            x: doodlerX,
+            y: doodlerY,
+            width: doodlerWidth,
+            height: doodlerHeight
         }
 
         velocityX = 0;
@@ -151,11 +157,11 @@ function placePlatforms() {
 
     //starting platforms
     let platform = {
-        img : platformImg,
-        x : boardWidth/2,
-        y : boardHeight - 50,
-        width : platformWidth,
-        height : platformHeight
+        img: platformImg,
+        x: boardWidth / 2,
+        y: boardHeight - 50,
+        width: platformWidth,
+        height: platformHeight
     }
 
     platformArray.push(platform);
@@ -170,48 +176,58 @@ function placePlatforms() {
     // platformArray.push(platform);
 
     for (let i = 0; i < 6; i++) {
-        let randomX = Math.floor(Math.random() * boardWidth*3/4); //(0-1) * boardWidth*3/4
+        let randomX = Math.floor(Math.random() * boardWidth * 3 / 4); //(0-1) * boardWidth*3/4
         let platform = {
-            img : platformImg,
-            x : randomX,
-            y : boardHeight - 75*i - 150,
-            width : platformWidth,
-            height : platformHeight
+            img: platformImg,
+            x: randomX,
+            y: boardHeight - 75 * i - 150,
+            width: platformWidth,
+            height: platformHeight
         }
-    
+
         platformArray.push(platform);
     }
 }
 
 function newPlatform() {
-    let randomX = Math.floor(Math.random() * boardWidth*3/4); //(0-1) * boardWidth*3/4
+    let randomX = Math.floor(Math.random() * boardWidth * 3 / 4); //(0-1) * boardWidth*3/4
     let platform = {
-        img : platformImg,
-        x : randomX,
-        y : -platformHeight,
-        width : platformWidth,
-        height : platformHeight
+        img: platformImg,
+        x: randomX,
+        y: -platformHeight,
+        width: platformWidth,
+        height: platformHeight
     }
 
     platformArray.push(platform);
 }
 
+// Improve collision detection for more precise platform landing
 function detectCollision(a, b) {
-    return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-           a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-           a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-           a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+    return a.x < b.x + b.width &&
+           a.x + a.width > b.x &&
+           a.y + a.height > b.y && // Doodler's bottom must be below platform top
+           a.y + a.height < b.y + b.height + 10; // Allow slight overlap for landing
+}
+
+// Add velocity reset on collision for better jump feel
+if (detectCollision(doodler, platform) && velocityY >= 0) {
+    velocityY = initialVelocityY;
+    doodler.y = platform.y - doodler.height; // Snap to platform
 }
 
 function updateScore() {
-    let points = Math.floor(50*Math.random()); //(0-1) *50 --> (0-50)
-    if (velocityY < 0) { //negative going up
-        maxScore += points;
-        if (score < maxScore) {
-            score = maxScore;
-        }
+    if (velocityY < 0) { // Going up
+        score += 1; // Increment by 1 for each upward movement
     }
-    else if (velocityY >= 0) {
-        maxScore -= points;
-    }
+    // let points = Math.floor(50*Math.random()); //(0-1) *50 --> (0-50)
+    // if (velocityY < 0) { //negative going up
+    //     maxScore += points;
+    //     if (score < maxScore) {
+    //         score = maxScore;
+    //     }
+    // }
+    // else if (velocityY >= 0) {
+    //     maxScore -= points;
+    // }
 }

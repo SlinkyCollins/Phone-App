@@ -335,11 +335,23 @@ function saveContact() {
     return;
   }
 
+
+  // Check for duplicates
+  let duplicate = allContacts.find(contact => contact.contactName.toLowerCase() === contactName.toLowerCase() && contact.contactNumber === contactNumber);
+  if (duplicate) {
+    alert('Contact already exists.');
+    return;
+  }
+
   let contactObj = { contactName, contactNumber };
 
   allContacts.push(contactObj);
 
   localStorage.setItem('contacts', JSON.stringify(allContacts));
+
+  // Clear inputs
+  document.getElementById("contactName").value = '';
+  document.getElementById("contactNumber").value = '';
 
   newContact.style.display = "none";
   contact.style.display = "block";
@@ -358,15 +370,15 @@ function displayContacts() {
 
   contactDisplay.innerHTML = '';
 
-  if (allContacts != [] || allContacts.length > 0) {
+  if (allContacts.length > 0) {
     console.log("contact found");
     noContactFound.style.display = 'none';
 
-    for (let i=0; i < allContacts.length; i++) {
-      let contactItem = allContacts[0+i];
+    for (let i = 0; i < allContacts.length; i++) {
+      let contactItem = allContacts[0 + i];
       contactDisplay.innerHTML += `
         <div id="contactWrapper">
-        <p>${i+1}.</p>
+        <p>${i + 1}.</p>
           <p><strong>Name:</strong> ${contactItem.contactName}</p>
           <p><strong>Phone No:</strong> ${contactItem.contactNumber}</p>
           <button onclick="editContact(${i})" id="editUserContact">Edit</button>
@@ -392,22 +404,22 @@ function editContact(i) {
   let contactDisplay = document.getElementById("displayContact");
   let allContacts = JSON.parse(localStorage.getItem('contacts')) || [];
 
-  const editedName = prompt('Enter the new name:',  allContacts[i]["contactName"]);
+  const editedName = prompt('Enter the new name:', allContacts[i]["contactName"]);
   const editedPhone = prompt('Enter the new phone number:', allContacts[i]["contactNumber"]);
-  
+
   // Update the contact details
   allContacts[i]["contactName"] = editedName.trim();
   allContacts[i]["contactNumber"] = editedPhone.trim();
 
   // Check if the user clicked "Cancel" or entered empty values
   if (editedName === null || editedPhone === null || editedName.trim() === '' || editedPhone.trim() === '') {
-      alert('Edit canceled or invalid input.');
-      return;
+    alert('Edit canceled or invalid input.');
+    return;
   }
 
   // Save the updated contacts to local storage
   localStorage.setItem('contacts', JSON.stringify(allContacts));
-  
+
   contactDisplay.innerHTML += ``;
 
   // Display the updated contact list
