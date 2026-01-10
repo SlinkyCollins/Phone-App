@@ -1,3 +1,17 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // DateTime Updates
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+  
+  // Display saved contacts on load
+  displayContacts();
+  
+  // Update phone app UI
+  updateBalanceDisplay();
+  let networkDisplay = document.getElementById("activeNetworkDisplay");
+  if (networkDisplay) networkDisplay.innerText = activeNetwork;
+});
+
 // Voucher Card CSS
 let showErr = document.getElementById("showError");
 
@@ -142,13 +156,6 @@ function changeSim(networkName) {
 }
 
 // PHONE CARD CSS
-document.addEventListener("DOMContentLoaded", function () {
-  updateDateTime();
-  setInterval(updateDateTime, 1000);
-  updateBalanceDisplay();
-  document.getElementById("activeNetworkDisplay").innerText = activeNetwork;
-});
-
 function updateBalanceDisplay() {
   // Show balance for the CURRENTLY active network
   let currentBalance = networkBalances[activeNetwork] || 0.0;
