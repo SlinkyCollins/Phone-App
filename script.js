@@ -335,8 +335,11 @@ function startCallSimulation(number) {
   document.getElementById("dialerScreen").style.display = "none";
   document.getElementById("activeCallScreen").style.display = "flex"; // Flex from CSS class needs to be applied
 
+  // Look up contact name from saved contacts
+  let contactName = getContactName(number);
+
   // Set details
-  document.getElementById("callName").innerText = "Unknown"; // Could search contacts here
+  document.getElementById("callName").innerText = contactName;
   document.getElementById("callNumber").innerText = number;
   document.getElementById("callStatus").innerText = "Calling...";
 
@@ -347,6 +350,23 @@ function startCallSimulation(number) {
     document.getElementById("callStatus").style.color = "#4caf50";
     startTimer();
   }, 2000);
+}
+
+// Helper function to find contact name by phone number
+function getContactName(number) {
+  let allContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+  
+  // Normalize the number (remove spaces, dashes, etc.)
+  let normalizedNumber = number.replace(/[\s\-\(\)]/g, "");
+  
+  // Search for matching contact
+  let foundContact = allContacts.find((contact) => {
+    let contactNum = contact.contactNumber.replace(/[\s\-\(\)]/g, "");
+    return contactNum === normalizedNumber;
+  });
+  
+  // Return name if found, otherwise "Unknown"
+  return foundContact ? foundContact.contactName : "Unknown";
 }
 
 function startTimer() {
@@ -410,23 +430,23 @@ function endCall() {
 }
 
 // Recents Logic
-function toggleRecents() {    
-    let screen = document.getElementById("recentsScreen");
-    let dialer = document.getElementById("dialerScreen");
-    
-    if (!screen || !dialer) {
-        console.error("ERROR: recentsScreen or dialerScreen not found in DOM!");
-        return;
-    }
-    
-    if (screen.style.display === "flex") {
-        screen.style.display = "none";
-        dialer.style.display = "flex";
-    } else {
-        renderRecents();
-        screen.style.display = "flex";
-        dialer.style.display = "none";
-    }
+function toggleRecents() {
+  let screen = document.getElementById("recentsScreen");
+  let dialer = document.getElementById("dialerScreen");
+
+  if (!screen || !dialer) {
+    console.error("ERROR: recentsScreen or dialerScreen not found in DOM!");
+    return;
+  }
+
+  if (screen.style.display === "flex") {
+    screen.style.display = "none";
+    dialer.style.display = "flex";
+  } else {
+    renderRecents();
+    screen.style.display = "flex";
+    dialer.style.display = "none";
+  }
 }
 
 function renderRecents() {
@@ -445,6 +465,7 @@ function renderRecents() {
             <div class="log-item outgoing">
                 <div>
                     <i class="fas fa-phone-alt" style="font-size: 10px; margin-right: 5px;"></i>
+                    <strong>${getContactName(log.number)}</strong>
                     <strong>${log.number}</strong>
                     <div style="color: #666; font-size: 10px;">${log.date}</div>
                 </div>
