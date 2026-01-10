@@ -2,7 +2,7 @@
 
 A realistic phone simulation built with vanilla HTML, CSS, and JavaScript. This project mimics a mobile device interface with multiple functional apps that interact with each other, just like a real smartphone.
 
-![Phone App Preview](image/preview.png) <!-- Add a screenshot if you have one -->
+<img width="1635" height="746" alt="Phone App Preview" src="https://github.com/user-attachments/assets/cbbcf782-e468-4fa2-ac68-ede9b68c8668" />
 
 ## 🌟 Features
 
