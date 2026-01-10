@@ -31,6 +31,13 @@ let platformArray = [];
 let platformWidth = 60;
 let platformHeight = 18;
 let platformImg;
+let platform = {
+    img: null,
+    x: 0,
+    y: 0,
+    width: platformWidth,
+    height: platformHeight
+}
 
 let score = 0;
 let maxScore = 0;

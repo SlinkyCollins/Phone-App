@@ -62,23 +62,6 @@
                 <div id="showG"></div>
 
                 <div id="card-wrapper">
-                    <div class="all-cards">
-                        <div class="all-cards-text">
-                            <p>AIRTEL</p>
-                            <p class="validation-text">NOTUSED</p>
-                            <p>#500</p>
-                        </div>
-                        <h1 id="validation">92437986171151111</h1>
-                    </div>
-
-                    <div class="all-cards">
-                        <div class="all-cards-text">
-                            <p>AIRTEL</p>
-                            <p class="validation-text">NOTUSED</p>
-                            <p>#500</p>
-                        </div>
-                        <h1 id="validation">92437986171151111</h1>
-                    </div>
                 </div>
             </div>
         </div>
@@ -194,9 +177,84 @@
                     <!--End of Game-->
 
                     <!--For Call App-->
-                    <div id="caller">
-                        <p>Nothing here yet!</p>
-                        <p>Please come back to check if it has been updated. We're working on it, stay tuned.😊</p>
+                    <div id="caller" class="call-app">
+                        <div class="phone-header">
+                            <div class="active-network" id="activeNetworkDisplay">MTN</div>
+                            <div class="balance">₦<span id="airtimeBalance">0.00</span></div>
+                        </div>
+
+                        <div class="network-status" onclick="openSimModal()">
+                            <span>Signal: 📶</span>
+                            <strong>Pick one ▾</strong>
+                        </div>
+
+                        <div id="simSelectionModal" class="modal-overlay">
+                            <div class="modal-content">
+                                <h3>Select Active SIM</h3>
+                                <p>Choose line to call/recharge:</p>
+                                <div class="sim-options">
+                                    <button class="sim-btn mtn" onclick="changeSim('MTN')">MTN</button>
+                                    <button class="sim-btn glo" onclick="changeSim('GLO')">GLO</button>
+                                    <button class="sim-btn airtel" onclick="changeSim('AIRTEL')">AIRTEL</button>
+                                    <button class="sim-btn mobile9" onclick="changeSim('9MOBILE')">9MOBILE</button>
+                                </div>
+                                <button class="close-modal-btn" onclick="closeSimModal()">Cancel</button>
+                            </div>
+                        </div>
+
+                        <!-- Dialer Screen -->
+                        <div id="dialerScreen">
+                            <div class="display-screen">
+                                <input type="text" id="dialInput" placeholder="Enter number">
+                                <i class="fas fa-backspace del-btn" onclick="deleteDigit()"></i>
+                            </div>
+                            <div class="keypad">
+                                <button onclick="pressKey('1')">1</button>
+                                <button onclick="pressKey('2')">2</button>
+                                <button onclick="pressKey('3')">3</button>
+                                <button onclick="pressKey('4')">4</button>
+                                <button onclick="pressKey('5')">5</button>
+                                <button onclick="pressKey('6')">6</button>
+                                <button onclick="pressKey('7')">7</button>
+                                <button onclick="pressKey('8')">8</button>
+                                <button onclick="pressKey('9')">9</button>
+                                <button onclick="pressKey('*')">*</button>
+                                <button onclick="pressKey('0')">0</button>
+                                <button onclick="pressKey('#')">#</button>
+                            </div>
+                            <div class="call-action">
+                                <button class="call-btn" onclick="initiateCall()"><i
+                                        class="fas fa-phone-alt"></i></button>
+                            </div>
+                            <div class="call-footer" onclick="toggleRecents()">
+                                <span>Recents</span>
+                            </div>
+                        </div>
+
+                        <!-- Active Call Screen -->
+                        <div id="activeCallScreen">
+                            <div class="caller-profile">
+                                <div class="avatar-circle">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h2 id="callName">Unknown</h2>
+                                <p id="callNumber">08012345678</p>
+                                <p id="callTimer">00:00</p>
+                                <p id="callStatus">Calling...</p>
+                            </div>
+                            <div class="end-call-action">
+                                <button class="end-btn" onclick="endCall()"><i class="fas fa-phone-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Recents Screen -->
+                        <div id="recentsScreen">
+                            <div class="recents-header">
+                                <h3>Recent Calls</h3>
+                                <button onclick="toggleRecents()">Back</button>
+                            </div>
+                            <div id="recentsList"></div>
+                        </div>
                     </div>
                     <!--End of Call App-->
 
